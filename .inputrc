@@ -1,0 +1,6 @@
+# Make Terminal tab completion rational
+# See http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
+# FIGNORE=".o:~:Application Scripts" Moved to .bashrc
+set completion-ignore-case on
+set mark-symlinked-directories on
+set show-all-if-ambiguous on
