@@ -5,6 +5,8 @@
 # Based on Mathias Bynens' dotfiles.  http://mths.be/osx
 
 # Ask for the administrator password upfront
+echo "Some changes require admin access."
+echo "Please supply your admin password if prompted:"
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
@@ -550,4 +552,5 @@ for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
 	"Twitter" "iCal" "iTunes"; do
 	killall "$app" > /dev/null 2>&1
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo "Done."
+echo "Note that some of these changes require a logout/restart to take effect."
