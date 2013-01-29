@@ -7,3 +7,14 @@ dotfiles
 * Tweak Rails project creation
 
 System and Finder preferences based on work by Mathias Bynens.
+
+Setup
+=====
+Will require a restart for all changes to take effect.
+
+Clone the repository locally, then run the setup script.
+
+    git clone git@github.com:bobgilmore/dotfiles.git
+    cd (into the repository directory)
+    chmod 777 ./setup.sh
+    ./setup.sh
