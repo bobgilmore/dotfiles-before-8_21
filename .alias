@@ -1,0 +1,5 @@
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+
+# No longer necessary with modern Rails setups.  May need to resurrect someday.
+#alias restart='touch tmp/restart.txt'
+#alias restarthard='rm -rf tmp/cache/sass/*; rm -rf tmp/cache/assets/*; touch tmp/restart.txt'
