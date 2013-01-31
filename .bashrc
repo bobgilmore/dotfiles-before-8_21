@@ -18,6 +18,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 growl() { echo -e $'\e]9;'${1}'\007' ; return  ; }
 
 # Git prompt
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWTRACKEDFILES=true
