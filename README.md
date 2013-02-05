@@ -5,6 +5,8 @@ dotfiles
 * Git configuration
 * Fix Terminal tab completion
 * Tweak Rails project creation
+* Create symbolic links in ~/bin/
+* Tweak gem installation behavior
 
 System and Finder preferences based on work by Mathias Bynens.
 

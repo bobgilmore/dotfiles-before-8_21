@@ -14,6 +14,13 @@ ln -is "$DOTFILE_DIRECTORY/.inputrc" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.railsrc" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.gemrc" "$HOME"
 
+echo "...and in ~/bin/..."
+
+mkdir -p ~/bin
+if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]; then
+	ln -is "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$HOME/bin/subl"
+fi
+
 echo "...symbolic links created."
 
 echo "Running .osx preferences script..."
