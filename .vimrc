@@ -1,6 +1,7 @@
 " From tpope/pathogen.vim
 
 execute pathogen#infect()
+execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 
