@@ -73,7 +73,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.md setlocal spell
 
 " Automatically wrap at 80 characters for Markdown
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " end from
 
