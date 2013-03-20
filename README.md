@@ -6,8 +6,12 @@ dotfiles
 * Git configuration
 * Fix Terminal tab completion
 * Tweak Rails project creation
-* Create symbolic links in ~/bin/
 * Tweak gem installation behavior
+* Create symbolic links...
+    * For Sublime Text 2 executable in ~/bin/
+    * For Sublime Text 2 packages from Dropbox (ignored if the packages don't exist on Dropbox).
+    * For vim packages from Dropbox (ignored if the packages don't exist on
+      Dropbox).
 
 System and Finder preferences based on work by Mathias Bynens.
 
