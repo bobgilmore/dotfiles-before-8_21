@@ -13,6 +13,7 @@ ln -is "$DOTFILE_DIRECTORY/.gitignore" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.inputrc" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.railsrc" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.gemrc" "$HOME"
+ln -is "$DOTFILE_DIRECTORY/.vimrc" "$HOME"
 
 echo "...and in ~/bin/..."
 

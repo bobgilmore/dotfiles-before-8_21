@@ -2,6 +2,7 @@ dotfiles
 ========
 * Pre-configure System, Finder, etc. preferences
 * Bash settings, paths, aliases, etc.
+* Vim settings
 * Git configuration
 * Fix Terminal tab completion
 * Tweak Rails project creation
