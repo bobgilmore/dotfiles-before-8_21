@@ -84,3 +84,6 @@ set ignorecase
 set smartcase
 set title
 set wildmode=list:longest " Activate tab auto-completion for file paths
+
+" more...
+set hidden
