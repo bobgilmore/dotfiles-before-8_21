@@ -24,6 +24,10 @@ else
 echo "Could not find file /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl in order to make a symbolic link to it."
 fi
 
+echo "Creating symbolic links for helper scripts in ~/scripts..."
+mkdir -p ~/scripts
+ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$HOME/scripts/"
+
 echo "Creating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" ]
 then
