@@ -17,6 +17,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # From http://www.worldgoneweb.com/2011/iterm2-advanced-features/
 growl() { echo -e $'\e]9;'${1}'\007' ; return  ; }
 
+source ~/.bash.colors
+
 # Git prompt
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
