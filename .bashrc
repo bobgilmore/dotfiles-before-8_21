@@ -20,8 +20,21 @@ growl() { echo -e $'\e]9;'${1}'\007' ; return  ; }
 source ~/.bash.colors
 
 # Git prompt
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]
+then
+  source /usr/local/etc/bash_completion.d/git-completion.bash
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+else
+  if [ -f ~/bash_completion.d/git-completion.bash ]
+  then
+    echo "Loading local (possibly outdated) copies of git-completion.bash etc."
+    source ~/bash_completion.d/git-completion.bash
+    source ~/bash_completion.d/git-prompt.sh
+  else
+    echo "Could not find /usr/local/etc/bash_completion.d/git-completion.bash"
+  fi
+fi
+
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWTRACKEDFILES=true
