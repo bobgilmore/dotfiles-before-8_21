@@ -25,7 +25,7 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWTRACKEDFILES=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
-export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+export PS1='[$(uname) \u \W$(__git_ps1 " (%s)")]\$ '
 
 # Make Terminal tab completion rational
 # From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
