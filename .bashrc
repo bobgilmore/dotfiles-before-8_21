@@ -41,7 +41,7 @@ if [ $(uname) = 'Darwin' ]
 then
   export PS1="\[${BICyan}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
 else
-  export PS1="\[${BIRed }\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+  export PS1="\[${BIRed}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
 fi
 
 # Things that are obviously Mac-only go here.
