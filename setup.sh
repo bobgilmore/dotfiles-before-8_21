@@ -61,6 +61,9 @@ fi
 
 echo "Symbolic links created."
 
-echo "Running .osx preferences script..."
-chmod 777 ./.osx
-./.osx
+if [ $(uname) = 'Darwin' ]
+then
+  echo "Running .osx preferences script..."
+  chmod 777 ./.osx
+  ./.osx
+fi
