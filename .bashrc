@@ -44,9 +44,13 @@ else
   export PS1="\[${BIRed }\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
 fi
 
-# Make Terminal tab completion rational on Mac
-# From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
-FIGNORE=".o:~:Application Scripts"
+# Things that are obviously Mac-only go here.
+if [ $(uname) = 'Darwin' ] 
+then
+  # Make Terminal tab completion rational on Mac
+  # From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
+  FIGNORE=".o:~:Application Scripts"
+fi
 
 source ~/.alias
 
