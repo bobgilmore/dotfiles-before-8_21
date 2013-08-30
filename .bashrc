@@ -14,9 +14,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# From http://www.worldgoneweb.com/2011/iterm2-advanced-features/
-growl() { echo -e $'\e]9;'${1}'\007' ; return  ; }
-
 source ~/.bash.colors
 
 # Git prompt
