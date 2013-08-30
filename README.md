@@ -1,7 +1,7 @@
 dotfiles
 ========
 * Pre-configure System, Finder, etc. preferences
-* Bash settings, paths, aliases, etc.
+* Bash settings, prompts, paths, aliases, etc.
 * Vim settings
 * Git configuration
 * Fix Terminal tab completion

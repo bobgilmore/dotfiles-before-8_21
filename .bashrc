@@ -42,7 +42,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export PS1='[$(uname) \u \W$(__git_ps1 " (%s)")]\$ '
 
-# Make Terminal tab completion rational
+# Make Terminal tab completion rational on Mac
 # From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
 FIGNORE=".o:~:Application Scripts"
 
