@@ -40,7 +40,12 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWTRACKEDFILES=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
-export PS1='[$(uname) \u \W$(__git_ps1 " (%s)")]\$ '
+if [ $(uname) = 'Darwin' ]
+then
+  export PS1="\[${BICyan}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+else
+  export PS1="\[${BIRed }\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+fi
 
 # Make Terminal tab completion rational on Mac
 # From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
