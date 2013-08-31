@@ -27,26 +27,26 @@ fi
 
 echo "Creating symbolic links for helper scripts in ~/scripts..."
 mkdir -p ~/scripts
-ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$HOME/scripts/"
+ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$HOME/scripts"
 
 echo "Creating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" ]
 then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" "$HOME/Library/Application Support/Sublime Text 2/"
+ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" "$HOME/Library/Application Support/Sublime Text 2"
 else
 echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages in order to make a symbolic link to it."
 fi
 
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Packages" ]
 then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Packages" "$HOME/Library/Application Support/Sublime Text 2/"
+ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Packages" "$HOME/Library/Application Support/Sublime Text 2"
 else
 echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Packages in order to make a symbolic link to it."
 fi
 
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages" ]
 then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages" "$HOME/Library/Application Support/Sublime Text 2/"
+ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages" "$HOME/Library/Application Support/Sublime Text 2"
 else
 echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages in order to make a symbolic link to it."
 fi
