@@ -61,8 +61,37 @@ fi
 
 echo "Symbolic links created."
 
+# Perform operations that only make sense on a Mac...
 if [ $(uname) = 'Darwin' ]
 then
+
+  # Install Brett Terpstra's na script    
+  NA_DIR="$DOTFILE_DIRECTORY/na"
+
+  if [ -d "$NA_DIR" ]; then
+    echo "=> NA is already installed in $NA_DIR, trying to update"
+    echo -ne "\r=> "
+    cd $NA_DIR && git pull
+  else
+    # Cloning to $NA_DIR
+    git clone https://github.com/ttscoff/na.git $NA_DIR
+  fi
+  cd $DOTFILE_DIRECTORY
+  if [ -d "$NA_DIR" ]
+  then
+    echo "Creating symbolic links for Brett Terpstra's NA in home directory..."
+    ln -is "$NA_DIR/na.sh" "$HOME/na.sh"
+  else
+    echo "Could not find directory $NA_DIR in order to make a symbolic link to the NA script."
+  fi
+  
+  if [ -f "/Applications/TaskPaper" ]
+  then
+    echo "Brett Terpstra's GitHub project https://github.com/ttscoff/na has been installed, but is non-functional"
+    echo "since Hog Bay Software's TaskPaper is not present."
+    # I am affiliated with neither Brett nor Hog Bay, I just like their work.
+  fi
+
   echo "Running .osx preferences script..."
   chmod 777 ./.osx
   ./.osx

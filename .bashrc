@@ -52,6 +52,8 @@ then
   FIGNORE=".o:~:Application Scripts"
 fi
 
+[[ -s "~/na.sh" ]] && source "~/na.sh"
+
 source ~/.alias
 
 # In case RVM is installed, set it up:
