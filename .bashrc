@@ -39,7 +39,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
 if [ $(uname) = 'Darwin' ]
 then
-  export PS1="\[${BICyan}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+  export PS1="\[${BIBlue}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
 else
   export PS1="\[${BIRed}\["'[$(uname) \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
 fi
