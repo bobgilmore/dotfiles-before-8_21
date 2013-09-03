@@ -59,3 +59,9 @@ source ~/.alias
 # In case RVM is installed, set it up:
 # This loads RVM into a shell session. If editing this file, keep this at the end.
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# From https://gist.github.com/burke/1688857
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_FREE_MIN=500000
+export RUBY_HEAP_MIN_SLOTS=40000
+
