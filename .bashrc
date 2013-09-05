@@ -52,7 +52,7 @@ then
   FIGNORE=".o:~:Application Scripts"
 fi
 
-if [ -s "$HOME/na.sh" ]; then source "$HOME/na.sh"; fi
+if [ -s "$HOME/scripts/na.sh" ]; then source "$HOME/scripts/na.sh"; fi
 
 source ~/.alias
 

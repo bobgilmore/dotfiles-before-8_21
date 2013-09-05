@@ -2,6 +2,8 @@
 
 # Find the location of the script.
 DOTFILE_DIRECTORY=`pwd`
+BIN_DIRECTORY="$HOME/bin"
+SCRIPT_DIRECTORY="$HOME/scripts"
 
 echo "Creating symbolic links for dotfiles in home directory..."
 
@@ -17,17 +19,17 @@ ln -is "$DOTFILE_DIRECTORY/.gemrc" "$HOME"
 ln -is "$DOTFILE_DIRECTORY/.vimrc" "$HOME"
 
 echo "Creating symbolic links for helper apps in ~/bin..."
-mkdir -p ~/bin
+mkdir -p "$BIN_DIRECTORY"
 if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
 then
-ln -is "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$HOME/bin/subl"
+ln -is "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$BIN_DIRECTORY/subl"
 else
 echo "Could not find file /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl in order to make a symbolic link to it."
 fi
 
 echo "Creating symbolic links for helper scripts in ~/scripts..."
-mkdir -p ~/scripts
-ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$HOME/scripts"
+mkdir -p "$SCRIPT_DIRECTORY"
+ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$SCRIPT_DIRECTORY"
 
 echo "Creating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" ]
@@ -79,8 +81,8 @@ then
   cd $DOTFILE_DIRECTORY
   if [ -d "$NA_DIR" ]
   then
-    echo "Creating symbolic links for Brett Terpstra's NA in home directory..."
-    ln -is "$NA_DIR/na.sh" "$HOME/na.sh"
+    echo "Creating symbolic links for Brett Terpstra's NA in $SCRIPT_DIRECTORY..."
+    ln -is "$NA_DIR/na.sh" "$SCRIPT_DIRECTORY/na.sh"
   else
     echo "Could not find directory $NA_DIR in order to make a symbolic link to the NA script."
   fi
@@ -89,7 +91,6 @@ then
   then
     echo "Brett Terpstra's GitHub project https://github.com/ttscoff/na has been installed, but is non-functional"
     echo "since Hog Bay Software's TaskPaper is not present."
-    # I am affiliated with neither Brett nor Hog Bay, I just like their work.
   fi
 
   echo "Running .osx preferences script..."
