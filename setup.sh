@@ -91,6 +91,27 @@ then
   else
     echo "Skipping Brett Terpstra's na project since Hog Bay Software's TaskPaper is not installed."
   fi
+
+
+  # Install the CriticMarkup-toolkit.  See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and https://github.com/CriticMarkup/CriticMarkup-toolkit
+  CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
+
+  if [ -d "$CRIT_DIR" ]; then
+    echo "=> CriticMarkup-toolkit is already installed in $CRIT_DIR, trying to update"
+    echo -ne "\r=> "
+    cd $CRIT_DIR && git pull
+  else
+    # Cloning to $CRIT_DIR
+    git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git $CRIT_DIR
+  fi
+  cd $DOTFILE_DIRECTORY
+  if [ -d "$CRIT_DIR" ]
+  then
+    echo "Creating symbolic links for CriticMarkup-toolkit components in $SCRIPT_DIRECTORY..."
+    ln -is "$CRIT_DIR/Marked Processor/critic.py" "$SCRIPT_DIRECTORY/marked_processor_critic.py"
+  else
+    echo "Could not find directory $CRIT_DIR in order to make symbolic links to the CriticMarkup-toolkit scripts."
+  fi
   
   echo "Running .osx preferences script..."
   chmod 777 ./.osx
