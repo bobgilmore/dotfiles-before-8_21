@@ -67,13 +67,14 @@ echo "Symbolic links created."
 if [ $(uname) = 'Darwin' ]
 then
 
+  
   # Install Brett Terpstra's na script - https://github.com/ttscoff/na
   if [ -d "/Applications/TaskPaper.app" ]
   then
     NA_DIR="$DOTFILE_DIRECTORY/na"
 
     if [ -d "$NA_DIR" ]; then
-      echo "=> NA is already installed in $NA_DIR, trying to update"
+      echo "=> NA is already installed in $NA_DIR, updating..."
       echo -ne "\r=> "
       cd $NA_DIR && git pull
     else
@@ -94,23 +95,27 @@ then
 
 
   # Install the CriticMarkup-toolkit.  See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and https://github.com/CriticMarkup/CriticMarkup-toolkit
-  CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
-
-  if [ -d "$CRIT_DIR" ]; then
-    echo "=> CriticMarkup-toolkit is already installed in $CRIT_DIR, trying to update"
-    echo -ne "\r=> "
-    cd $CRIT_DIR && git pull
-  else
-    # Cloning to $CRIT_DIR
-    git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git $CRIT_DIR
-  fi
-  cd $DOTFILE_DIRECTORY
-  if [ -d "$CRIT_DIR" ]
+  echo "If you're a MultiMarkdown user, we'll install the CriticMarkup-toolkit."
+  read -r -p "ARE you a MultiMarkdown user? [y/N] " response
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
   then
-    echo "Creating symbolic links for CriticMarkup-toolkit components in $SCRIPT_DIRECTORY..."
-    ln -is "$CRIT_DIR/Marked Processor/critic.py" "$SCRIPT_DIRECTORY/marked_processor_critic.py"
-  else
-    echo "Could not find directory $CRIT_DIR in order to make symbolic links to the CriticMarkup-toolkit scripts."
+    CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
+    if [ -d "$CRIT_DIR" ]; then
+      echo "=> CriticMarkup-toolkit is already installed in $CRIT_DIR, updating..."
+      echo -ne "\r=> "
+      cd $CRIT_DIR && git pull
+    else
+      # Cloning to $CRIT_DIR
+      git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git $CRIT_DIR
+    fi
+    cd $DOTFILE_DIRECTORY
+    if [ -d "$CRIT_DIR" ]
+    then
+      echo "Creating symbolic links for CriticMarkup-toolkit components in $SCRIPT_DIRECTORY..."
+      ln -is "$CRIT_DIR/Marked Processor/critic.py" "$SCRIPT_DIRECTORY/marked_processor_critic.py"
+    else
+      echo "Could not find directory $CRIT_DIR in order to make symbolic links to the CriticMarkup-toolkit scripts."
+    fi
   fi
   
   echo "Running .osx preferences script..."
