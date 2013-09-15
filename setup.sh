@@ -5,60 +5,65 @@ DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
 SCRIPT_DIRECTORY="$HOME/scripts"
 
-echo "Creating symbolic links for dotfiles in home directory..."
+create_link_if_necessary() {
+  local sourcefile="$3"
+  local sourcedir="$1"
+  local targetdir="$2"
+  if [ -z "$4" ]
+  then
+    local targetfile="$3"
+  else
+    local targetfile="$4"
+  fi
 
-ln -is "$DOTFILE_DIRECTORY/.alias" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.bash_profile" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.bashrc" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.bash.colors" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.gitconfig" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.gitignore" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.inputrc" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.railsrc" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.gemrc" "$HOME"
-ln -is "$DOTFILE_DIRECTORY/.vimrc" "$HOME"
+  if !([ -e "$targetdir/$targetfile" ] && [[ $(readlink "$targetdir/$targetfile") = "$sourcedir/$sourcefile" ]])
+  then
+    ln -is "$sourcedir/$sourcefile" "$targetdir/$targetfile"
+  fi
+}
 
-echo "Creating symbolic links for helper apps in ~/bin..."
+echo "Updating symbolic links for dotfiles in home directory..."
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".inputrc"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".railsrc"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
+create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
+
+echo "Updating symbolic links for helper apps in ~/bin..."
 mkdir -p "$BIN_DIRECTORY"
 if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
 then
-ln -is "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$BIN_DIRECTORY/subl"
+  create_link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
 else
 echo "Could not find file /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl in order to make a symbolic link to it."
 fi
 
 echo "Creating symbolic links for helper scripts in ~/scripts..."
 mkdir -p "$SCRIPT_DIRECTORY"
-ln -is "$DOTFILE_DIRECTORY/scripts/editor.sh" "$SCRIPT_DIRECTORY"
+create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
 
-echo "Creating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
 if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" ]
 then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" "$HOME/Library/Application Support/Sublime Text 2"
+  echo "Creating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
+  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Installed Packages"
+  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Packages"
+  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Pristine Packages"
 else
-echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages in order to make a symbolic link to it."
-fi
-
-if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Packages" ]
-then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Packages" "$HOME/Library/Application Support/Sublime Text 2"
-else
-echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Packages in order to make a symbolic link to it."
-fi
-
-if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages" ]
-then
-ln -is "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages" "$HOME/Library/Application Support/Sublime Text 2"
-else
-echo "Could not find directory ~/Dropbox/Library/Application Support/Sublime Text 2/Pristine Packages in order to make a symbolic link to it."
+  echo "Could not find ~/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages/ in order to make symbolic links."
 fi
 
 echo "Creating symbolic links from ~/Dropbox/.vim to ~/.vim..."
 if [ -d "$HOME/Dropbox/home/.vim" ]
 then
-ln -is "$HOME/Dropbox/home/.vim" "$HOME/.vim"
+  create_link_if_necessary "$HOME/Dropbox/home" "$HOME" ".vim"
 else
-echo "Could not find directory ~/Dropbox/home/.vim in order to make a symbolic link to it."
+echo "Could not find ~/Dropbox/home/.vim/ in order to make a symbolic link."
 fi
 
 echo "Symbolic links created."
@@ -66,7 +71,6 @@ echo "Symbolic links created."
 # Perform operations that only make sense on a Mac...
 if [ $(uname) = 'Darwin' ]
 then
-
   
   # Install Brett Terpstra's na script - https://github.com/ttscoff/na
   if [ -d "/Applications/TaskPaper.app" ]
@@ -85,7 +89,7 @@ then
     if [ -d "$NA_DIR" ]
     then
       echo "Creating symbolic links for Brett Terpstra's NA in $SCRIPT_DIRECTORY..."
-      ln -is "$NA_DIR/na.sh" "$SCRIPT_DIRECTORY/na.sh"
+      create_link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
     else
       echo "Could not find directory $NA_DIR in order to make a symbolic link to the NA script."
     fi
@@ -112,7 +116,7 @@ then
     if [ -d "$CRIT_DIR" ]
     then
       echo "Creating symbolic links for CriticMarkup-toolkit components in $SCRIPT_DIRECTORY..."
-      ln -is "$CRIT_DIR/Marked Processor/critic.py" "$SCRIPT_DIRECTORY/marked_processor_critic.py"
+      create_link_if_necessary "$CRIT_DIR/Marked Processor" "$SCRIPT_DIRECTORY" "critic.py" "marked_processor_critic.py"
     else
       echo "Could not find directory $CRIT_DIR in order to make symbolic links to the CriticMarkup-toolkit scripts."
     fi
