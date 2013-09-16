@@ -99,9 +99,20 @@ then
 
 
   # Install the CriticMarkup-toolkit.  See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and https://github.com/CriticMarkup/CriticMarkup-toolkit
-  echo "If you're a MultiMarkdown user, we'll install the CriticMarkup-toolkit."
-  read -r -p "ARE you a MultiMarkdown user? [y/N] " response
-  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+  WANTS_CM='n'
+  if [ -d "$DOTFILE_DIRECTORY/CriticMarkup-toolkit" ]
+  then
+    WANTS_CM='y'
+  else
+    echo "If you're a MultiMarkdown user, we'll install the CriticMarkup-toolkit."
+    read -r -p "ARE you a MultiMarkdown user? [y/N] " response
+    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+    then
+      WANTS_CM='y'
+    fi
+  fi
+
+  if [ "$WANTS_CM" = 'y' ]
   then
     CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
     if [ -d "$CRIT_DIR" ]; then
