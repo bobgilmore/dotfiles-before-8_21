@@ -5,7 +5,7 @@ DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
 SCRIPT_DIRECTORY="$HOME/scripts"
 OLD_DROPBOX_DIRECTORY="$HOME/Dropbox"
-DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
+DROPBOX_DIRECTORY="$HOME/Dropbox/config_dotfile_symlinks"
 LIB_SUBLIME="Library/Application Support/Sublime Text 2"
 HOME_VIM="home/.vim"
 
@@ -89,6 +89,22 @@ then
 else
 echo "Could not find $DROPBOX_DIRECTORY/$HOME_VIM in order to make a symbolic link."
 fi
+
+if [ -d "$DROPBOX_DIRECTORY" ]; then
+echo "This directory exists for use by https://github.com/bobgilmore/dotfiles
+
+It contains directories and files that apps (such as Sublime Text and Vim)
+constantly modify, and which therefore aren't really suited for
+checking in to git.
+
+This README.md was created by the github project's setup.sh script for
+informational purposes.
+
+See the github repo for more information.
+
+20 September 2013, Bob Gilmore
+" > "$DROPBOX_DIRECTORY/README.md"
+fi
 #Finished with Dropbox files.
 
 # Perform operations that only make sense on a Mac...
@@ -124,20 +140,9 @@ then
 
 
   # Install the CriticMarkup-toolkit.  See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and https://github.com/CriticMarkup/CriticMarkup-toolkit
-  WANTS_CM='n'
-  if [ -d "$DOTFILE_DIRECTORY/CriticMarkup-toolkit" ]
-  then
-    WANTS_CM='y'
-  else
-    echo "If you're a MultiMarkdown user, we'll install the CriticMarkup-toolkit."
-    read -r -p "ARE you a MultiMarkdown user? [y/N] " response
-    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
-    then
-      WANTS_CM='y'
-    fi
-  fi
-
-  if [ "$WANTS_CM" = 'y' ]
+  echo "If you're a MultiMarkdown user, we'll install the CriticMarkup-toolkit."
+  read -r -p "ARE you a MultiMarkdown user? [y/N] " response
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
   then
     CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
     if [ -d "$CRIT_DIR" ]; then
