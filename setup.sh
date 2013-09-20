@@ -4,6 +4,7 @@
 DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
 SCRIPT_DIRECTORY="$HOME/scripts"
+DROPBOX_DIRECTORY="$HOME/Dropbox"
 
 create_link_if_necessary() {
   local sourcefile="$3"
@@ -48,22 +49,22 @@ echo "Creating/updating symbolic links for helper scripts in ~/scripts..."
 mkdir -p "$SCRIPT_DIRECTORY"
 create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
 
-if [ -d "$HOME/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages" ]
+if [ -d "$DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages" ]
 then
   echo "Creating/updating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
-  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Installed Packages"
-  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Packages"
-  create_link_if_necessary "$HOME/Dropbox/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Pristine Packages"
+  create_link_if_necessary "$DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Installed Packages"
+  create_link_if_necessary "$DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Packages"
+  create_link_if_necessary "$DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2" "$HOME/Library/Application Support/Sublime Text 2" "Pristine Packages"
 else
-  echo "Could not find ~/Dropbox/Library/Application Support/Sublime Text 2/Installed Packages/ in order to make symbolic links."
+  echo "Could not find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ in order to make symbolic links."
 fi
 
-echo "Creating/updating symbolic links from ~/Dropbox/.vim to ~/.vim..."
-if [ -d "$HOME/Dropbox/home/.vim" ]
+echo "Creating/updating symbolic links from $DROPBOX_DIRECTORY/.vim to ~/.vim..."
+if [ -d "$DROPBOX_DIRECTORY/home/.vim" ]
 then
-  create_link_if_necessary "$HOME/Dropbox/home" "$HOME" ".vim"
+  create_link_if_necessary "$DROPBOX_DIRECTORY/home" "$HOME" ".vim"
 else
-echo "Could not find ~/Dropbox/home/.vim/ in order to make a symbolic link."
+echo "Could not find $DROPBOX_DIRECTORY/home/.vim/ in order to make a symbolic link."
 fi
 
 # Perform operations that only make sense on a Mac...
