@@ -89,6 +89,22 @@ then
 else
 echo "Could not find $DROPBOX_DIRECTORY/$HOME_VIM in order to make a symbolic link."
 fi
+
+if [ -d "$DROPBOX_DIRECTORY" ]; then
+echo "This directory exists for use by https://github.com/bobgilmore/dotfiles
+
+It contains directories and files that apps (such as Sublime Text and Vim)
+constantly modify, and which therefore aren't really suited for
+checking in to git.
+
+This README.md was created by the github project's setup.sh script for
+informational purposes.
+
+See the github repo for more information.
+
+20 September 2013, Bob Gilmore
+" > "$DROPBOX_DIRECTORY/README.md"
+fi
 #Finished with Dropbox files.
 
 # Perform operations that only make sense on a Mac...
