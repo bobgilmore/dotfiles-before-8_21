@@ -26,7 +26,7 @@ create_link_if_necessary() {
   fi
 }
 
-echo "Creating/updating symbolic links for dotfiles in home directory..."
+echo "Handling dotfiles in ~..."
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
@@ -39,16 +39,16 @@ create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 
-echo "Creating/updating symbolic links for local helper apps in ~/bin..."
+echo "Handling local helper apps in ~/bin..."
 mkdir -p "$BIN_DIRECTORY"
 if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
 then
   create_link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
 else
-echo "Could not find file /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl in order to make a symbolic link to it."
+echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
 fi
 
-echo "Creating/updating symbolic links for helper scripts in ~/scripts..."
+echo "Handling helper scripts in ~/scripts..."
 mkdir -p "$SCRIPT_DIRECTORY"
 create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
 
@@ -65,12 +65,12 @@ if [ -d "$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
 fi
 if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
 then
-  echo "Creating/updating symbolic links from Sublime Text 2 Packages in Dropbox to ~/Library/Application Support/..."
+  echo "Handling Sublime Text 2 symlinks in ~/Library/Application Support/..."
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
 else
-  echo "Could not find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ in order to make symbolic links."
+  echo "Can't find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ for symlinks."
 fi
 
 if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
@@ -82,12 +82,13 @@ if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
     echo -e "Please move \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nto \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
   fi
 fi
-echo "Creating/updating symbolic links from $DROPBOX_DIRECTORY/$HOME_VIM to ~/.vim..."
+
 if [ -d "$DROPBOX_DIRECTORY/home/$HOME_VIM" ]
 then
+  echo "Handling Vim symlinks in ~/.vim..."
   create_link_if_necessary "$DROPBOX_DIRECTORY/home" "$HOME" ".vim"
 else
-echo "Could not find $DROPBOX_DIRECTORY/$HOME_VIM in order to make a symbolic link."
+echo "Can't find $DROPBOX_DIRECTORY/$HOME_VIM for symlink."
 fi
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then
@@ -115,9 +116,9 @@ then
   if [ -d "/Applications/TaskPaper.app" ]
   then
     NA_DIR="$DOTFILE_DIRECTORY/na"
-    echo "Creating/updating Brett Terpstra's NA script for Hog Bay Software's TaskPaper"
+    echo "Handling Brett Terpstra's NA script for Hog Bay Software's TaskPaper..."
     if [ -d "$NA_DIR" ]; then
-      echo "=> NA is already installed in $NA_DIR, updating..."
+      echo "=> NA already installed in $NA_DIR, updating..."
       echo -ne "\r=> "
       cd $NA_DIR && git pull
     else
@@ -129,13 +130,13 @@ then
     cd $DOTFILE_DIRECTORY
     if [ -d "$NA_DIR" ]
     then
-      echo "Creating symbolic links to NA in $SCRIPT_DIRECTORY..."
+      echo "Handling symlinks to NA in $SCRIPT_DIRECTORY..."
       create_link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
     else
-      echo "Could not find directory $NA_DIR in order to make a symbolic link to the NA script."
+      echo "Can't find directory $NA_DIR for symlink to the NA script."
     fi
   else
-    echo "Skipping Brett Terpstra's na project since Hog Bay Software's TaskPaper is not installed."
+    echo "Skipping Brett Terpstra's na project since Hog Bay Software's TaskPaper not installed."
   fi
 
 
@@ -157,7 +158,7 @@ then
   then
     CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
     if [ -d "$CRIT_DIR" ]; then
-      echo "=> CriticMarkup-toolkit is already installed in $CRIT_DIR, updating..."
+      echo "=> CriticMarkup-toolkit already installed in $CRIT_DIR, updating..."
       echo -ne "\r=> "
       cd $CRIT_DIR && git pull
     else
@@ -169,10 +170,10 @@ then
     cd $DOTFILE_DIRECTORY
     if [ -d "$CRIT_DIR" ]
     then
-      echo "Creating symbolic links to CriticMarkup-toolkit components in $SCRIPT_DIRECTORY..."
+      echo "Handling symlinks to CriticMarkup-toolkit in $SCRIPT_DIRECTORY..."
       create_link_if_necessary "$CRIT_DIR/Marked Processor" "$SCRIPT_DIRECTORY" "critic.py" "marked_processor_critic.py"
     else
-      echo "Could not find directory $CRIT_DIR in order to make symbolic links to the CriticMarkup-toolkit scripts."
+      echo "Can't directory $CRIT_DIR for symlinks to the CriticMarkup-toolkit scripts."
     fi
   fi
   
