@@ -7,7 +7,7 @@ SCRIPT_DIRECTORY="$HOME/scripts"
 OLD_DROPBOX_DIRECTORY="$HOME/Dropbox"
 DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
 LIB_SUBLIME="Library/Application Support/Sublime Text 2"
-HOME_VIM="home/.vim"
+HOME_VIM="$HOME/.vim"
 
 create_link_if_necessary() {
   local sourcefile="$3"
@@ -83,13 +83,22 @@ if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
   fi
 fi
 
+# Install Vim addons...
+# From https://github.com/tpope/vim-pathogen
+echo -e "Installing pathogen (Vim autoloader) into $HOME_VIM/autoload"
+echo -e "Creating $HOME_VIM/bundle for your addons"
+mkdir -p $HOME_VIM/autoload $HOME_VIM/bundle
+curl -Sso $HOME_VIM/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
 if [ -d "$DROPBOX_DIRECTORY/home/$HOME_VIM" ]
 then
   echo "Handling Vim symlinks in ~/.vim..."
   create_link_if_necessary "$DROPBOX_DIRECTORY/home" "$HOME" ".vim"
 else
-echo "Can't find $DROPBOX_DIRECTORY/$HOME_VIM for symlink."
+  echo "Can't find $DROPBOX_DIRECTORY/$HOME_VIM for symlink."
 fi
+# Finished with Vim addons
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then
 echo "This directory exists for use by https://github.com/bobgilmore/dotfiles
