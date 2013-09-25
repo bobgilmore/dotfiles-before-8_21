@@ -96,7 +96,7 @@ then
   echo "Handling Vim symlinks in ~/.vim..."
   create_link_if_necessary "$DROPBOX_DIRECTORY/home" "$HOME" ".vim"
 else
-  echo "Can't find $DROPBOX_DIRECTORY/$HOME_VIM for symlink."
+  echo "Can't find $DROPBOX_DIRECTORY/.vim for symlink."
 fi
 # Finished with Vim addons
 
