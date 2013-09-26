@@ -85,20 +85,14 @@ fi
 
 # Install Vim addons...
 # From https://github.com/tpope/vim-pathogen
-echo -e "Installing pathogen (Vim autoloader) into $HOME_VIM/autoload"
-echo -e "Creating $HOME_VIM/bundle for your addons"
-mkdir -p $HOME_VIM/autoload $HOME_VIM/bundle
+echo -e "Installing Vim pathogen into $HOME_VIM/autoload"
+mkdir -p $HOME_VIM/autoload
 curl -Sso $HOME_VIM/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-if [ -d "$DROPBOX_DIRECTORY/home/$HOME_VIM" ]
-then
-  echo "Handling Vim symlinks in ~/.vim..."
-  create_link_if_necessary "$DROPBOX_DIRECTORY/home" "$HOME" ".vim"
-else
-  echo "Can't find $DROPBOX_DIRECTORY/.vim for symlink."
-fi
-# Finished with Vim addons
+echo "Symlinking Vim bundles in $HOME_VIM/bundle"
+create_link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
+# Done with Vim
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then
 echo "This directory exists for use by https://github.com/bobgilmore/dotfiles
