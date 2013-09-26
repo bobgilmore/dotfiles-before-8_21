@@ -5,8 +5,7 @@
 # Based on Mathias Bynens' dotfiles.  http://mths.be/osx
 
 # Ask for the administrator password upfront
-echo "Some changes require admin access."
-echo "Please supply your admin password if prompted:"
+echo "Changes require admin access - supply admin password if prompted:"
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
