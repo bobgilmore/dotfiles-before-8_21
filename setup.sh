@@ -41,11 +41,14 @@ create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 
 echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
-if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
-then
-  create_link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
-else
-echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
+
+if [ $(uname) = 'Darwin' ]; then
+  if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
+  then
+    create_link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
+  else
+    echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
+  fi
 fi
 
 echo "Symlinking helper scripts in ~/scripts"
@@ -63,14 +66,17 @@ if [ -d "$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
     echo -e "Move\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nto \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
   fi
 fi
-if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
-then
-  echo "Symlinking Sublime Text 2 in ~/Library/Application Support/"
-  create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
-  create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
-  create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
-else
-  echo "Can't find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ for symlinks."
+
+if [ $(uname) = 'Darwin' ]; then
+  if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
+  then
+    echo "Symlinking Sublime Text 2 in ~/Library/Application Support/"
+    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
+    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
+    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
+  else
+    echo "Can't find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ for symlinks."
+  fi
 fi
 
 if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
@@ -90,8 +96,15 @@ mkdir -p $HOME_VIM/autoload
 curl -Sso $HOME_VIM/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-echo "Symlinking Vim bundles in $HOME_VIM/bundle"
-create_link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
+if [ -d "$DROPBOX_DIRECTORY/vim" ]; then
+  echo "Symlinking Vim bundles in $HOME_VIM/bundle"
+  create_link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
+else
+  if [ ! -d "$HOME_VIM/bundle" ]; then
+    echo "Creating $HOME_VIM/bundle for Vim pathogen bundles"
+    mkdir -p "$HOME_VIM/bundle"
+  fi
+fi
 # Done with Vim
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then
