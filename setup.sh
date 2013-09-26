@@ -26,7 +26,7 @@ create_link_if_necessary() {
   fi
 }
 
-echo "Handling dotfiles in ~..."
+echo "Symlinking dotfiles in ~"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
@@ -39,7 +39,7 @@ create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
 create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 
-echo "Handling local helper apps in ~/bin..."
+echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
 if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
 then
@@ -48,7 +48,7 @@ else
 echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
 fi
 
-echo "Handling helper scripts in ~/scripts..."
+echo "Symlinking helper scripts in ~/scripts"
 mkdir -p "$SCRIPT_DIRECTORY"
 create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
 
@@ -56,16 +56,16 @@ create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "edito
 # Start by detecting old setups and warning appropriately.
 if [ -d "$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
   if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
-    echo "WARNING: You have redundant directory structures set up in Dropbox."
-    echo -e "Please remove\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nin favor of \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
+    echo "WARNING: Redundant directory structures in Dropbox."
+    echo -e "Remove\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nin favor of \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
   else
-    echo "ERROR: You have an old directory structure set up in Dropbox."
-    echo -e "Please move\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nto \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
+    echo "ERROR: Old directory structure in Dropbox."
+    echo -e "Move\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nto \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
   fi
 fi
 if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
 then
-  echo "Handling Sublime Text 2 symlinks in ~/Library/Application Support/..."
+  echo "Symlinking Sublime Text 2 in ~/Library/Application Support/"
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
   create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
@@ -75,11 +75,11 @@ fi
 
 if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
   if [ -d "$DROPBOX_DIRECTORY/$HOME_VIM"]; then
-    echo "WARNING: You have redundant directory structures set up in Dropbox."
-    echo -e "Please remove \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nin favor of \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
+    echo "WARNING: Redundant directory structures in Dropbox."
+    echo -e "Remove \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nin favor of \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
   else
-    echo "ERROR: You have an old directory structure set up in Dropbox."
-    echo -e "Please move \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nto \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
+    echo "ERROR: Old directory structure in Dropbox."
+    echo -e "Move \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nto \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
   fi
 fi
 
@@ -125,27 +125,24 @@ then
   if [ -d "/Applications/TaskPaper.app" ]
   then
     NA_DIR="$DOTFILE_DIRECTORY/na"
-    echo "Handling Brett Terpstra's NA script for Hog Bay Software's TaskPaper..."
+    echo "Handling Brett Terpstra's NA script for TaskPaper"
     if [ -d "$NA_DIR" ]; then
-      echo "=> NA already installed in $NA_DIR, updating..."
-      echo -ne "\r=> "
       cd $NA_DIR && git pull
     else
       # Cloning to $NA_DIR
-      echo "=> Cloning NA repository into $NA_DIR..."
-      echo -ne "\r=> "
+      echo "=> Cloning NA repo into $NA_DIR"
       git clone https://github.com/ttscoff/na.git $NA_DIR
     fi
     cd $DOTFILE_DIRECTORY
     if [ -d "$NA_DIR" ]
     then
-      echo "Handling symlinks to NA in $SCRIPT_DIRECTORY..."
+      echo "Symlinking NA in $SCRIPT_DIRECTORY"
       create_link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
     else
       echo "Can't find directory $NA_DIR for symlink to the NA script."
     fi
   else
-    echo "Skipping Brett Terpstra's na project since Hog Bay Software's TaskPaper not installed."
+    echo "Skipping Brett Terpstra's NA project since TaskPaper not installed."
   fi
 
 
@@ -167,26 +164,23 @@ then
   then
     CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
     if [ -d "$CRIT_DIR" ]; then
-      echo "=> CriticMarkup-toolkit already installed in $CRIT_DIR, updating..."
-      echo -ne "\r=> "
       cd $CRIT_DIR && git pull
     else
       # Cloning to $CRIT_DIR
-      echo "=> Cloning CriticMarkup-toolkit into $CRIT_DIR..."
-      echo -ne "\r=> "
+      echo "=> Cloning CriticMarkup-toolkit into $CRIT_DIR"
       git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git $CRIT_DIR
     fi
     cd $DOTFILE_DIRECTORY
     if [ -d "$CRIT_DIR" ]
     then
-      echo "Handling symlinks to CriticMarkup-toolkit in $SCRIPT_DIRECTORY..."
+      echo "Symlinking CriticMarkup-toolkit in $SCRIPT_DIRECTORY"
       create_link_if_necessary "$CRIT_DIR/Marked Processor" "$SCRIPT_DIRECTORY" "critic.py" "marked_processor_critic.py"
     else
       echo "Can't directory $CRIT_DIR for symlinks to the CriticMarkup-toolkit scripts."
     fi
   fi
   
-  echo "Running .osx preferences script..."
+  echo "Running .osx preferences script"
   chmod 777 ./.osx
   ./.osx
 fi
