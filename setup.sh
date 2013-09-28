@@ -20,9 +20,14 @@ create_link_if_necessary() {
     local targetfile="$4"
   fi
 
-  if !([ -e "$targetdir/$targetfile" ] && [[ $(readlink "$targetdir/$targetfile") = "$sourcedir/$sourcefile" ]])
-  then
+  if [ ! -e "$targetdir/$targetfile" ]; then
     ln -is "$sourcedir/$sourcefile" "$targetdir/$targetfile"
+  else
+    if [[ $(readlink "$targetdir/$targetfile") != "$sourcedir/$sourcefile" ]]; then
+      local full_targ="$targetdir/$targetfile"
+      rm ${full_targ%/}
+      ln -is "$sourcedir/$sourcefile" "$full_targ"
+    fi
   fi
 }
 
