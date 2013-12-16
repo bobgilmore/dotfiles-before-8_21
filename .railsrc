@@ -1,4 +1,4 @@
 --skip-bundle
 # Add
-# -d postgresql
+# dash then the fourth letter of the alphabet then postgresql
 # to change the project's default db to postgresql
