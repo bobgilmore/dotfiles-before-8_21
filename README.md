@@ -5,8 +5,9 @@ dotfiles
 * Vim settings
 * Git configuration
 * Fix Terminal tab completion
-* Tweak Rails project creation
-* Tweak gem installation behavior
+* Rails project creation
+    * `.railsrc` contains instruction on making new projects default to postgresql
+* Gem installation behavior
 * Create symbolic links...
     * For Sublime Text 2 executable in ~/bin/
     * For Sublime Text 2 packages from Dropbox (ignored if the packages don't exist on Dropbox).
