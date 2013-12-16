@@ -55,6 +55,9 @@ fi
 if [ -s "$HOME/scripts/na.sh" ]; then source "$HOME/scripts/na.sh"; fi
 
 source ~/.alias
+if [ -f ~/.alias.generated ]; then
+  source ~/.alias.generated
+fi
 
 # In case RVM is installed, set it up:
 # This loads RVM into a shell session. If editing this file, keep this at the end.
