@@ -8,6 +8,10 @@ function daywork() {
   echo "$1 #work" | dayone new
 }
 
+function dayrun() {
+  echo "$1 #run" | dayone new
+}
+
 # From http://brettterpstra.com/2013/08/30/easily-save-that-wicked-awesome-shell-command/
 # alias last and save
 # use `als c NAME` to chop off the last argument (for filenames/patterns)
