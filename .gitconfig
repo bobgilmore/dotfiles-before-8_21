@@ -74,5 +74,3 @@
 	ui = true
 [credential]
 	helper = osxkeychain
-[init]
-	templatedir = /Users/bob.gilmore/code/githooks
