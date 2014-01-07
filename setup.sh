@@ -59,6 +59,7 @@ fi
 echo "Symlinking helper scripts in ~/scripts"
 mkdir -p "$SCRIPT_DIRECTORY"
 create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
+create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebuild_slug.sh"
 
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
 # Start by detecting old setups and warning appropriately.
