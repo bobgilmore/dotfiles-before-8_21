@@ -140,12 +140,12 @@ then
   if [ -d "/Applications/TaskPaper.app" ]
   then
     NA_DIR="$DOTFILE_DIRECTORY/na"
-    echo "Handling Brett Terpstra's NA script for TaskPaper"
     if [ -d "$NA_DIR" ]; then
+      echo "Updating Brett Terpstra's NA script for TaskPaper"
       cd $NA_DIR && git pull
     else
       # Cloning to $NA_DIR
-      echo "=> Cloning NA repo into $NA_DIR"
+      echo "Installing Brett Terpstra's NA script for TaskPaper; cloning NA repo into $NA_DIR"
       git clone https://github.com/ttscoff/na.git $NA_DIR
     fi
     cd $DOTFILE_DIRECTORY
@@ -157,11 +157,13 @@ then
       echo "Can't find directory $NA_DIR for symlink to the NA script."
     fi
   else
-    echo "Skipping Brett Terpstra's NA project since TaskPaper not installed."
+    echo "Skipping NA since TaskPaper not installed."
   fi
 
 
-  # Install the CriticMarkup-toolkit.  See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and https://github.com/CriticMarkup/CriticMarkup-toolkit
+  # Install the CriticMarkup-toolkit.  
+  # See http://brettterpstra.com/2013/05/18/criticmarkup-in-marked-1-dot-4/ and 
+  # https://github.com/CriticMarkup/CriticMarkup-toolkit
   WANTS_CM='n'
   if [ -d "$DOTFILE_DIRECTORY/CriticMarkup-toolkit" ]
   then
@@ -179,6 +181,7 @@ then
   then
     CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
     if [ -d "$CRIT_DIR" ]; then
+      echo "Updating CriticMarkup-toolkit"
       cd $CRIT_DIR && git pull
     else
       # Cloning to $CRIT_DIR
