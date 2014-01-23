@@ -38,7 +38,7 @@ link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig_shared"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".inputrc"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".railsrc"
@@ -66,6 +66,12 @@ link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebui
 echo "Symlinking warning git hooks in ~/.git_template_warning"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_template_warning"
 git config --global init.templatedir '~/.git_template_warning'
+
+gitconfig_include_path=`git config --global --get-all include.path`
+if [[ ! $gitconfig_include_path == *~/.gitconfig_shared* ]] ; then
+  echo "Including ~/.gitconfig_shared in ~/.gitconfig"
+  git config --global --add include.path "~/.gitconfig_shared"
+fi
 
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
 # Start by detecting old setups and warning appropriately.
