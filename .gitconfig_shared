@@ -1,0 +1,52 @@
+# Shared git configuration settings, from https://github.com/bobgilmore/dotfiles
+[color]
+  ui = true
+[alias]
+  # http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
+  c = commit -m
+  a = add
+  aa= !git add -u && git add . && git status
+  cob = checkout -b
+  gwc = git whatchanged -p --abbrev-commit --pretty=medium
+ 
+  up  = !git fetch origin && git rebase origin/master && git submodule update
+  upb = !sh -c 'git fetch origin && git rebase origin/$1' -
+  ir  = !git rebase -i origin/master
+  irb = !sh -c 'git rebase -i origin/$1' -
+  done  = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && git push
+  doneb = !sh -c 'git fetch origin && git rebase origin/$1 && git push' -
+  
+  # From http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+  # List commits in short form, with colors and branch/tag annotations.
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  # List commits showing changed files
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  # List with no colors if you need to chain the out put with Unix pipes
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  # List oneline commits showing dates
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  # List oneline commits showing relative dates
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  # default look for short git log
+  le = log --oneline --decorate
+  # See commits related to a file
+  filelog = log -u
+  fl = log -u
+  # Show modified files in last commit
+  dl = "!git ll -1"
+  # Show diff last commit
+  dlc = diff --cached HEAD^
+  # Above, but for a given commit hash
+  dr  = "!f() { git diff "$1"^.."$1"; }; f"
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+  # Meta; see all get aliases:
+  la = "!git config -l | grep alias | cut -c 7-"
+  # Show tree
+  logtree = "log --graph --oneline --decorate --all"
+
+  # Alternate profiles
+  # The example below shows how to configure a particular project with different
+  # git user information
+  #osprofile = config user.email \"bobg@ourstage.com\"
+  
