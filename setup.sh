@@ -87,13 +87,13 @@ if [ $(uname) = 'Darwin' ]; then
   fi
 fi
 
-if [ -d "$OLD_DROPBOX_DIRECTORY/$HOME_VIM" ]; then
-  if [ -d "$DROPBOX_DIRECTORY/$HOME_VIM"]; then
+if [ -d "$OLD_DROPBOX_DIRECTORY/vim" ]; then
+  if [ -d "$DROPBOX_DIRECTORY/vim"]; then
     echo "WARNING: Redundant directory structures in Dropbox."
-    echo -e "Remove \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nin favor of \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
+    echo -e "Remove \n$OLD_DROPBOX_DIRECTORY/vim\nin favor of \n$DROPBOX_DIRECTORY/vim\nand run setup.sh again."
   else
     echo "ERROR: Old directory structure in Dropbox."
-    echo -e "Move \n$OLD_DROPBOX_DIRECTORY/$HOME_VIM \nto \n$DROPBOX_DIRECTORY/$HOME_VIM\nand run setup.sh again."
+    echo -e "Move \n$OLD_DROPBOX_DIRECTORY/vim\nto \n$DROPBOX_DIRECTORY/vim\nand run setup.sh again."
   fi
 fi
 
