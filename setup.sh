@@ -9,7 +9,9 @@ DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
 LIB_SUBLIME="Library/Application Support/Sublime Text 2"
 HOME_VIM="$HOME/.vim"
 
-create_link_if_necessary() {
+# Three-argument form: sourcedir, targetdir, source_and_target_file
+# Four-argument form:  sourcedir, targetdir, sourcefile, targetfile
+link_if_necessary() {
   local sourcefile="$3"
   local sourcedir="$1"
   local targetdir="$2"
@@ -32,17 +34,17 @@ create_link_if_necessary() {
 }
 
 echo "Symlinking dotfiles in ~"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".inputrc"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".railsrc"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
-create_link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".inputrc"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".railsrc"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 
 echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
@@ -50,7 +52,7 @@ mkdir -p "$BIN_DIRECTORY"
 if [ $(uname) = 'Darwin' ]; then
   if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
   then
-    create_link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
+    link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
   else
     echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
   fi
@@ -58,8 +60,8 @@ fi
 
 echo "Symlinking helper scripts in ~/scripts"
 mkdir -p "$SCRIPT_DIRECTORY"
-create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
-create_link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebuild_slug.sh"
+link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
+link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebuild_slug.sh"
 
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
 # Start by detecting old setups and warning appropriately.
@@ -77,9 +79,9 @@ if [ $(uname) = 'Darwin' ]; then
   if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
   then
     echo "Symlinking Sublime Text 2 in ~/Library/Application Support/"
-    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
-    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
-    create_link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
   else
     echo "Can't find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ for symlinks."
   fi
@@ -104,7 +106,7 @@ curl -Sso $HOME_VIM/autoload/pathogen.vim \
 
 if [ -d "$DROPBOX_DIRECTORY/vim" ]; then
   echo "Symlinking Vim bundles in $HOME_VIM/bundle"
-  create_link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
+  link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
 else
   if [ ! -d "$HOME_VIM/bundle" ]; then
     echo "Creating $HOME_VIM/bundle for Vim pathogen bundles"
@@ -150,7 +152,7 @@ then
     if [ -d "$NA_DIR" ]
     then
       echo "Symlinking NA in $SCRIPT_DIRECTORY"
-      create_link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
+      link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
     else
       echo "Can't find directory $NA_DIR for symlink to the NA script."
     fi
@@ -187,7 +189,7 @@ then
     if [ -d "$CRIT_DIR" ]
     then
       echo "Symlinking CriticMarkup-toolkit in $SCRIPT_DIRECTORY"
-      create_link_if_necessary "$CRIT_DIR/Marked Processor" "$SCRIPT_DIRECTORY" "critic.py" "marked_processor_critic.py"
+      link_if_necessary "$CRIT_DIR/Marked Processor" "$SCRIPT_DIRECTORY" "critic.py" "marked_processor_critic.py"
     else
       echo "Can't directory $CRIT_DIR for symlinks to the CriticMarkup-toolkit scripts."
     fi
