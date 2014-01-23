@@ -63,6 +63,10 @@ mkdir -p "$SCRIPT_DIRECTORY"
 link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
 link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebuild_slug.sh"
 
+echo "Symlinking warning git hooks in ~/.git_template_warning"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_template_warning"
+git config --global init.templatedir '~/.git_template_warning'
+
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
 # Start by detecting old setups and warning appropriately.
 if [ -d "$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then

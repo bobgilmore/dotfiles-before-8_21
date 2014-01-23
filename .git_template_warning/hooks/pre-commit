@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+# Git pre-commit hook that tells user to install some *real* git hooks.
+#
+# I have a great (IMO) git pre-commit hook, but I never remember to install it 
+# into new projects.  I can't use the 
+# 
+# git config --global init.templatedir '~/.git_template'
+#
+# trick to install the GOOD pre-commit hooks, since I install symlinks
+# to ensure that even old projects are always using up-to-date hooks.
+# So, I set up this default hook to remind me (and others) to install the 
+# GOOD hooks.  
+# 
+# I could, theoretically, install the good hooks by running code
+# inside THIS hook, but that feels too creepy and invasive.
+# So, I just show a reminder.
+
+message = <<END
+
+This git repository isn't using a good git pre-commit hook - it's just using
+this warning message one installed by https://github.com/bobgilmore/dotfiles
+
+This is a bad idea - good hooks can save you a *lot* of trouble. I recommend 
+installing some.  You can write your own, or start with the ones in my 
+Github project. Follow the instructions at...
+
+https://github.com/bobgilmore/githooks#installation
+
+If instead you just want this message to go away so that you can commit 
+normally, run...
+
+rm #{File.expand_path(__FILE__)}
+
+@bob_gilmore
+
+END
+
+puts message
+exit 1

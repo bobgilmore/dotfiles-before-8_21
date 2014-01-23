@@ -74,3 +74,5 @@
 	ui = true
 [credential]
 	helper = osxkeychain
+[init]
+	templatedir = ~/.git_template_warning
