@@ -4,6 +4,8 @@ dotfiles
 * Bash settings, prompts, paths, aliases, etc.
 * Vim settings
 * Git configuration
+    * Sets up an included config file to install aliases
+    * Installs a pre-commit hook warning users to install some *useful* hooks. 
 * Fix Terminal tab completion
 * Rails project creation
     * `.railsrc` contains instruction on making new projects default to postgresql
