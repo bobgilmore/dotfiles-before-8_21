@@ -23,9 +23,16 @@ this warning message one installed by https://github.com/bobgilmore/dotfiles
 
 This is a bad idea - good hooks can save you a *lot* of trouble. I recommend 
 installing some.  You can write your own, or start with the ones in my 
-Github project. Follow the instructions at...
+Github project. To install mine, run...
 
-https://github.com/bobgilmore/githooks#installation
+cd <some directory where you can clone a Git repo.  I use ~/code >
+git clone git@github.com:bobgilmore/githooks.git #clone the repo
+cd githooks
+./setup.sh #{File.dirname(File.dirname(File.dirname(File.expand_path(__FILE__))))}
+cd #{File.dirname(File.dirname(File.dirname(File.expand_path(__FILE__))))} #cd back here
+
+(More information is available at...
+https://github.com/bobgilmore/githooks#installation )
 
 If instead you just want this message to go away so that you can commit 
 normally, run...
