@@ -5,7 +5,8 @@ dotfiles
 * Vim settings
 * Git configuration
     * Sets up an included config file to install aliases
-    * Installs a pre-commit hook warning users to install some *useful* hooks. 
+    * Installs a pre-commit hook prompting users to install some *useful* hooks.
+        * If the git config variable `hooks.symlinksourcerepo` is set from a previous git hooks installation, this git pre-commit hook will specifically prompt users on how to create symlinks to *that* installation.  Otherwise it prompts the user to install and use https://github.com/bobgilmore/githooks
 * Fix Terminal tab completion
 * Rails project creation
     * `.railsrc` contains instruction on making new projects default to postgresql
