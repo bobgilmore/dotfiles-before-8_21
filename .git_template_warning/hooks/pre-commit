@@ -16,6 +16,37 @@
 # inside THIS hook, but that feels too creepy and invasive.
 # So, I just show a reminder.
 
+# Check to see if we have a records of a git repo already installed.
+SYMLINK_SOURCE_REPO = `git config hooks.symlinksourcerepo`.strip
+repo_exists = (!SYMLINK_SOURCE_REPO.strip.empty?) && (File.directory?(SYMLINK_SOURCE_REPO) || File.symlink?(SYMLINK_SOURCE_REPO))
+
+if repo_exists
+message = <<END
+
+You've already installed git pre-commit hooks, at 
+#{SYMLINK_SOURCE_REPO},
+but this git repository isn't using them.
+
+To use those git hooks,
+
+cd #{SYMLINK_SOURCE_REPO}
+./setup.sh #{File.dirname(File.dirname(File.dirname(File.expand_path(__FILE__))\
+))}
+cd #{File.dirname(File.dirname(File.dirname(File.expand_path(__FILE__))))} #cd \
+back here
+
+(More information is available at...
+https://github.com/bobgilmore/githooks#installation )
+
+If instead you just want this message to go away so that you can commit
+normally, run...
+
+rm #{File.expand_path(__FILE__)}
+
+@bob_gilmore
+
+END
+else
 message = <<END
 
 This git repository isn't using a good git pre-commit hook - it's just using
@@ -42,6 +73,7 @@ rm #{File.expand_path(__FILE__)}
 @bob_gilmore
 
 END
+end
 
 puts message
 exit 1
