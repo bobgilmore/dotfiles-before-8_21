@@ -64,7 +64,8 @@ fi
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # From https://gist.github.com/burke/1688857
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_FREE_MIN=500000
-export RUBY_HEAP_MIN_SLOTS=40000
+# These need to be updated for Ruby 2.1.x
+#export RUBY_GC_MALLOC_LIMIT=1000000000
+#export RUBY_FREE_MIN=500000
+#export RUBY_HEAP_MIN_SLOTS=40000
 
