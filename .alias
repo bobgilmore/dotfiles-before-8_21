@@ -12,6 +12,12 @@ function dayrun() {
   echo "$1 #run" | dayone new
 }
 
+function daycocktail() {
+  echo "$1 #cocktail" | dayone new
+}
+
+alias daydrink='daycocktail'
+
 # From http://brettterpstra.com/2013/08/30/easily-save-that-wicked-awesome-shell-command/
 # alias last and save
 # use `als c NAME` to chop off the last argument (for filenames/patterns)
