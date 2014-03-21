@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+  Adapted from https://github.com/metafour/dotfiles/blob/master/private.xml, 
+ https://gist.github.com/mutewinter/5674972, and
+ https://bitbucket.org/sjl/dotfiles/src/15fb2a3ae7b6f76bb350083e1e045ecdfa4bdf90/keyremap4macbook/private.xml?at=default
+ among others.
+-->
+<root>
+  <item>
+    <name>F19 to F19</name>
+    <appendix>(F19 to Hyper (ctrl+shift+cmd+opt) + F19 Only, send escape)</appendix>
+    <identifier>private.f192f19_escape</identifier>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::F19,
+      KeyCode::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::ESCAPE
+    </autogen>
+  </item>
+  <item>
+    <name>Fn to Hyper</name>
+    <appendix>(Fn to Hyper (ctrl+shift+cmd+opt) + Fn Only, send escape)</appendix>
+    <identifier>private.Fn2Hyper</identifier>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::CAPSLOCK,
+      KeyCode::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::ESCAPE
+    </autogen>
+  </item>
+  <item>
+    <name>Hyper J to Down</name>
+    <appendix>(Hyper-J to Down arrow)</appendix>
+    <identifier>private.hyper-j-down</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::J,
+      ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_DOWN
+    </autogen>
+</item>
+<item>
+    <name>Hyper K to Up</name>
+    <appendix>(Hyper-K to Up arrow)</appendix>
+    <identifier>private.hyper-k-up</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::K,
+      ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_UP
+    </autogen>
+</item>
+<item>
+    <name>Hyper H to Left</name>
+    <appendix>(Hyper-H to Left arrow)</appendix>
+    <identifier>private.hyper-h-left</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::H,
+      ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_LEFT
+    </autogen>
+</item>
+<item>
+    <name>Hyper L to Right</name>
+    <appendix>(Hyper-L to Right arrow)</appendix>
+    <identifier>private.hyper-l-right</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::L,
+      ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_RIGHT
+    </autogen>
+</item>
+<item>
+    <name>Hyper A to Ctrl-A (for tmux)</name>
+    <appendix>(Hyper-A to Ctrl-A)</appendix>
+    <identifier>private.hyper-a-ctrl-a</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::A,
+      ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::A,
+      ModifierFlag::CONTROL_L
+    </autogen>
+</item>
+</root>
