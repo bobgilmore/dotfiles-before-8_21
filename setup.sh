@@ -35,9 +35,10 @@ link_if_necessary() {
 
 echo "Symlinking dotfiles in ~"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
+link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".doingrc"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig_shared"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
