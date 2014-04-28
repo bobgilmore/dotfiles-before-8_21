@@ -33,6 +33,12 @@ link_if_necessary() {
   fi
 }
 
+echo "Installing Homebrew"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+Echo "Installing Homebrew formulae"
+brew bundle
+
 echo "Symlinking dotfiles in ~"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
