@@ -1,12 +1,10 @@
 install ack
 install bash
-install cmake
 install coreutils
 install ctags
 install findutils
 install fish
 install freetype
-install gdbm
 install git
 install gitsh
 install gnu-sed
@@ -14,6 +12,7 @@ install grep
 install libidn
 install memcached
 install multimarkdown
+install mysql
 install node
 install phantomjs
 install postgresql
@@ -22,6 +21,7 @@ install redis
 install ruby-build
 install sqlite
 install the_silver_searcher
+install tmux
 install tree
 install vim
 install webkit2png
