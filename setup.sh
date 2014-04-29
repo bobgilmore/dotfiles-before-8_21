@@ -33,25 +33,22 @@ link_if_necessary() {
   fi
 }
 
-echo "Installing Homebrew"
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-Echo "Installing Homebrew formulae"
-brew bundle
+if [ $(uname) = 'Darwin' ]; then
+  if [ ! -f /usr/local/bin/brew ]; then
+    echo "Installing Homebrew"
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  fi
+  Echo "Installing Homebrew formulae"
+  brew bundle
+fi
 
 echo "Symlinking dotfiles in ~"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".alias"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash.colors"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bash_profile"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".bashrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".doingrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gemrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitconfig_shared"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".gitignore"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".inputrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".railsrc"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".tmux.conf"
-link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".vimrc"
+for f in $DOTFILE_DIRECTORY/.* ; do
+  base=$(basename $f)
+  if [[ ($base != ".") && ($base != "..") ]]; then
+    link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" $base
+  fi
+done
 
 echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
@@ -67,8 +64,9 @@ fi
 
 echo "Symlinking helper scripts in ~/scripts"
 mkdir -p "$SCRIPT_DIRECTORY"
-link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "editor.sh"
-link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" "heroku_rebuild_slug.sh"
+for f in $DOTFILE_DIRECTORY/scripts/*; do
+  link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" $(basename $f)
+done
 
 echo "Symlinking warning git hooks in ~/.git_template_warning"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_template_warning"
