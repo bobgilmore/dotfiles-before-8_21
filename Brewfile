@@ -31,3 +31,4 @@ tap homebrew/dupes
 install grep
 tap thoughtbot/formulae
 install gitsh
+linkapps
