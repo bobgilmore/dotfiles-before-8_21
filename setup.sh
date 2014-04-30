@@ -5,7 +5,8 @@ DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
 SCRIPT_DIRECTORY="$HOME/scripts"
 DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
-LIB_SUBLIME="Library/Application Support/Sublime Text 2"
+LIB_SUBLIME_2="Library/Application Support/Sublime Text 2"
+LIB_SUBLIME_3="Library/Application Support/Sublime Text 3"
 HOME_VIM="$HOME/.vim"
 
 # Three-argument form: sourcedir, targetdir, source_and_target_file
@@ -53,11 +54,11 @@ echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
 
 if [ $(uname) = 'Darwin' ]; then
-  if [ -f "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ]
+  if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
   then
-    link_if_necessary "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
+    link_if_necessary "/Applications/Sublime Text.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
   else
-    echo "Can't find /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl for symlink."
+    echo "Can't find /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl for symlink."
   fi
 fi
 
@@ -80,18 +81,22 @@ fi
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
 
 if [ $(uname) = 'Darwin' ]; then
-  if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
+  if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME_2/Installed Packages" ]
   then
     echo "Symlinking Sublime Text 2 in ~/Library/Application Support/"
-    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Installed Packages"
-    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Packages"
-    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME" "$HOME/$LIB_SUBLIME" "Pristine Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME_2" "$HOME/$LIB_SUBLIME_2" "Installed Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME_2" "$HOME/$LIB_SUBLIME_2" "Packages"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME_2" "$HOME/$LIB_SUBLIME_2" "Pristine Packages"
   else
-    echo "Can't find $DROPBOX_DIRECTORY/Library/Application Support/Sublime Text 2/Installed Packages/ for symlinks."
+    echo "Can't find $DROPBOX_DIRECTORY/$LIB_SUBLIME_2/Installed Packages/ for symlinks."
   fi
-fi
 
+  if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME_3/Packages/User" ]
+  then
+    echo "Symlinking Sublime Text 3 in ~/Library/Application Support/"
+    link_if_necessary "$DROPBOX_DIRECTORY/$LIB_SUBLIME_3/Packages" "$HOME/$LIB_SUBLIME_3/Packages" "User"
   else
+    echo "Can't find $DROPBOX_DIRECTORY/$LIB_SUBLIME_3/Packages/User for symlinks."
   fi
 fi
 
