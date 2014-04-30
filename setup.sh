@@ -213,6 +213,10 @@ then
     fi
   fi
 
+  echo "Configuring bundle..."
+  number_of_cores=$(sysctl -n hw.ncpu)
+  bundle config --global jobs $((number_of_cores - 1))
+
   echo "------ TODO ------"
   if [ -d "/Applications/KeyRemap4MacBook.app/" ]
   then
