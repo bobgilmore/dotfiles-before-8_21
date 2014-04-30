@@ -4,7 +4,6 @@
 DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
 SCRIPT_DIRECTORY="$HOME/scripts"
-OLD_DROPBOX_DIRECTORY="$HOME/Dropbox"
 DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
 LIB_SUBLIME="Library/Application Support/Sublime Text 2"
 HOME_VIM="$HOME/.vim"
@@ -79,16 +78,6 @@ if [[ ! $gitconfig_include_path == *~/.gitconfig_shared* ]] ; then
 fi
 
 # Deal with constantly-changing files (that shouldn't be checked in) stored on Dropbox
-# Start by detecting old setups and warning appropriately.
-if [ -d "$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
-  if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]; then
-    echo "WARNING: Redundant directory structures in Dropbox."
-    echo -e "Remove\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nin favor of \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
-  else
-    echo "ERROR: Old directory structure in Dropbox."
-    echo -e "Move\n$OLD_DROPBOX_DIRECTORY/$LIB_SUBLIME \nto \n$DROPBOX_DIRECTORY/$LIB_SUBLIME\nand run setup.sh again."
-  fi
-fi
 
 if [ $(uname) = 'Darwin' ]; then
   if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME/Installed Packages" ]
@@ -102,13 +91,7 @@ if [ $(uname) = 'Darwin' ]; then
   fi
 fi
 
-if [ -d "$OLD_DROPBOX_DIRECTORY/vim" ]; then
-  if [ -d "$DROPBOX_DIRECTORY/vim"]; then
-    echo "WARNING: Redundant directory structures in Dropbox."
-    echo -e "Remove \n$OLD_DROPBOX_DIRECTORY/vim\nin favor of \n$DROPBOX_DIRECTORY/vim\nand run setup.sh again."
   else
-    echo "ERROR: Old directory structure in Dropbox."
-    echo -e "Move \n$OLD_DROPBOX_DIRECTORY/vim\nto \n$DROPBOX_DIRECTORY/vim\nand run setup.sh again."
   fi
 fi
 
