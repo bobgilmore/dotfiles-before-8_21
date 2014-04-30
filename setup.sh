@@ -45,7 +45,7 @@ fi
 echo "Symlinking dotfiles in ~"
 for f in $DOTFILE_DIRECTORY/.* ; do
   base=$(basename $f)
-  if [[ ($base != ".") && ($base != "..") ]]; then
+  if [[ ($base != ".") && ($base != "..") && ($base != ".git") ]]; then
     link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" $base
   fi
 done
