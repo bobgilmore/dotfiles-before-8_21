@@ -18,6 +18,7 @@ install mysql
 install node
 install phantomjs
 install postgresql
+install qt
 install rbenv
 install redis
 install ruby-build
