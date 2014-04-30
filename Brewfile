@@ -6,9 +6,7 @@ install findutils
 install fish
 install freetype
 install git
-install gitsh
 install gnu-sed
-install grep
 install heroku-toolbelt
 install hub
 install libidn
@@ -29,3 +27,7 @@ install tree
 install vim
 install webkit2png
 install wget
+tap homebrew/dupes
+install grep
+tap thoughtbot/formulae
+install gitsh
