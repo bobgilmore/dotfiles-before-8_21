@@ -27,7 +27,7 @@ link_if_necessary() {
   else
     if [[ $(readlink "$targetdir/$targetfile") != "$sourcedir/$sourcefile" ]]; then
       local full_targ="$targetdir/$targetfile"
-      rm ${full_targ%/}
+      rm -rf "${full_targ%/}"
       ln -is "$sourcedir/$sourcefile" "$full_targ"
     fi
   fi
