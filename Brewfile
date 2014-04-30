@@ -9,6 +9,8 @@ install git
 install gitsh
 install gnu-sed
 install grep
+install heroku-toolbelt
+install hub
 install libidn
 install memcached
 install multimarkdown
