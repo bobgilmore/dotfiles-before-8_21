@@ -29,4 +29,3 @@ install tree
 install vim
 install webkit2png
 install wget
-install znc
