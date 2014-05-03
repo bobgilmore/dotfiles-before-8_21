@@ -9,9 +9,12 @@ source "$(pwd)/setup_utils.sh"
 ./sublime_setup.sh
 ./git_setup.sh
 ./vim_setup.sh
-./mac_app_setup.sh
 ./ruby_setup.sh
-
+# Mac-specific code
+if [ $(uname) = 'Darwin' ]; then 
+  ./mac_app_setup.sh
+  ./.osx
+fi
 # CriticMarkup no longer installed.
 #./criticmarkup_setup.sh
 
@@ -29,14 +32,4 @@ See the github repo for more information.
 
 20 September 2013, Bob Gilmore
 " > "$DROPBOX_DIRECTORY/README.md"
-fi
-#Finished with Dropbox files.
-
-# Perform operations that only make sense on a Mac...
-if [ $(uname) = 'Darwin' ]
-then
-
-  echo "Running .osx preferences script"
-  chmod 777 ./.osx
-  ./.osx
 fi
