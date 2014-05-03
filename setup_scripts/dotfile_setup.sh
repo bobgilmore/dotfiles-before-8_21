@@ -3,7 +3,7 @@
 # Set up dotfiles
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 echo "Symlinking dotfiles in ~"
 for f in $DOTFILE_DIRECTORY/.* ; do

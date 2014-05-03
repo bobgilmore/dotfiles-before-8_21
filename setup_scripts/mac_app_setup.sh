@@ -3,7 +3,7 @@
 # Set up for "full-blown" Mac-specific applications
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 # Perform operations that only make sense on a Mac...
 if [ $(uname) = 'Darwin' ]

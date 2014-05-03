@@ -3,7 +3,7 @@
 # Set up posix apps and scripts
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"

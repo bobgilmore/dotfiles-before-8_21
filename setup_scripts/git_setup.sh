@@ -3,7 +3,7 @@
 # Set up git configuration
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 echo "Symlinking and using git hooks in ~/.git_template_warning"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_template_warning"

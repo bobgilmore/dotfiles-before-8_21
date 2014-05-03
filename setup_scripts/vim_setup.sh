@@ -3,7 +3,7 @@
 # Set up Vim configuration
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 # From https://github.com/tpope/vim-pathogen
 echo -e "Installing Vim pathogen into $HOME_VIM/autoload"

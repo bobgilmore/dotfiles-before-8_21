@@ -3,7 +3,7 @@
 # Set up Homebrew and packages
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 if [ $(uname) = 'Darwin' ]; then
   if [ ! -f /usr/local/bin/brew ]; then
@@ -11,7 +11,7 @@ if [ $(uname) = 'Darwin' ]; then
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   fi
   Echo "Installing Homebrew formulae"
-  brew bundle
+  brew bundle "$DOTFILE_DIRECTORY/setup_scripts"
 
   # Ask for the administrator password upfront
   echo "Changes require admin access - supply admin password if prompted:"

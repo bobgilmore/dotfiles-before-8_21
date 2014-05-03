@@ -3,7 +3,7 @@
 # Set up Sublime Text - version 2 and 3
 
 # Load env vars and functions
-source "$(pwd)/setup_utils.sh"
+source "$(pwd)/setup_scripts/setup_utils.sh"
 
 if [ $(uname) = 'Darwin' ]; then
   # Create the "subl" symlink to open Sublime Text (3) from the cli

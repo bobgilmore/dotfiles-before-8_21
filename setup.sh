@@ -1,20 +1,17 @@
 #!/bin/bash
 
-# Load env vars and functions
-source "$(pwd)/setup_utils.sh"
-
-./dropbox_setup.sh
-./homebrew_setup.sh
-./dotfile_setup.sh
-./posix_app_setup.sh
-./sublime_setup.sh
-./git_setup.sh
-./vim_setup.sh
-./ruby_setup.sh
+./setup_scripts/dropbox_setup.sh
+./setup_scripts/homebrew_setup.sh
+./setup_scripts/dotfile_setup.sh
+./setup_scripts/posix_app_setup.sh
+./setup_scripts/sublime_setup.sh
+./setup_scripts/git_setup.sh
+./setup_scripts/vim_setup.sh
+./setup_scripts/ruby_setup.sh
 # Mac-specific code
 if [ $(uname) = 'Darwin' ]; then 
-  ./mac_app_setup.sh
-  ./.osx
+  ./setup_scripts/mac_app_setup.sh
+  ./setup_scripts/osx.sh
 fi
 
 # CriticMarkup no longer installed.
