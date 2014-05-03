@@ -10,6 +10,7 @@ source "$(pwd)/setup_utils.sh"
 ./git_setup.sh
 ./vim_setup.sh
 ./mac_app_setup.sh
+./ruby_setup.sh
 
 # CriticMarkup no longer installed.
 #./criticmarkup_setup.sh
@@ -34,10 +35,6 @@ fi
 # Perform operations that only make sense on a Mac...
 if [ $(uname) = 'Darwin' ]
 then
-
-  echo "Configuring bundle..."
-  number_of_cores=$(sysctl -n hw.ncpu)
-  bundle config --global jobs $((number_of_cores - 1))
 
   echo "Running .osx preferences script"
   chmod 777 ./.osx
