@@ -8,24 +8,7 @@ source "$(pwd)/setup_utils.sh"
 ./posix_app_setup.sh
 ./sublime_setup.sh
 ./git_setup.sh
-
-# Install Vim addons...
-# From https://github.com/tpope/vim-pathogen
-echo -e "Installing Vim pathogen into $HOME_VIM/autoload"
-mkdir -p $HOME_VIM/autoload
-curl -Sso $HOME_VIM/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-
-if [ -d "$DROPBOX_DIRECTORY/vim" ]; then
-  echo "Symlinking Vim bundles in $HOME_VIM/bundle"
-  link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
-else
-  if [ ! -d "$HOME_VIM/bundle" ]; then
-    echo "Creating $HOME_VIM/bundle for Vim pathogen bundles"
-    mkdir -p "$HOME_VIM/bundle"
-  fi
-fi
-# Done with Vim
+./vim_setup.sh
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then
 echo "This directory exists for use by https://github.com/bobgilmore/dotfiles
