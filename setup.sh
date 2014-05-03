@@ -5,10 +5,9 @@ source "$(pwd)/setup_utils.sh"
 
 ./homebrew_setup.sh
 ./dotfile_setup.sh
+./posix_app_setup.sh
 
 
-echo "Symlinking local helper apps in ~/bin"
-mkdir -p "$BIN_DIRECTORY"
 
 if [ $(uname) = 'Darwin' ]; then
   if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
@@ -18,12 +17,6 @@ if [ $(uname) = 'Darwin' ]; then
     echo "Can't find /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl for symlink."
   fi
 fi
-
-echo "Symlinking helper scripts in ~/scripts"
-mkdir -p "$SCRIPT_DIRECTORY"
-for f in $DOTFILE_DIRECTORY/scripts/*; do
-  link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPT_DIRECTORY" $(basename $f)
-done
 
 echo "Symlinking warning git hooks in ~/.git_template_warning"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_template_warning"
