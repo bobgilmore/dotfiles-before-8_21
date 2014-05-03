@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Set up dotfiles
+# Set up Sublime Text - version 2 and 3
 
 # Load env vars and functions
 source "$(pwd)/setup_utils.sh"
