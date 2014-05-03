@@ -12,4 +12,12 @@ if [ $(uname) = 'Darwin' ]; then
   fi
   Echo "Installing Homebrew formulae"
   brew bundle
+
+  # Ask for the administrator password upfront
+  echo "Changes require admin access - supply admin password if prompted:"
+  sudo -v
+
+  # Add fish and bash to the list of acceptable shells.
+  grep -q '/usr/local/bin/fish' /etc/shells || echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+  grep -q '/usr/local/bin/bash' /etc/shells || echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
 fi
