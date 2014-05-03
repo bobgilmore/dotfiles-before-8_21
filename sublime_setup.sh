@@ -5,21 +5,20 @@
 # Load env vars and functions
 source "$(pwd)/setup_utils.sh"
 
-# Create the "subl" symlink to open Sublime Text (3) from the cli
 if [ $(uname) = 'Darwin' ]; then
+  # Create the "subl" symlink to open Sublime Text (3) from the cli
   if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
   then
     link_if_necessary "/Applications/Sublime Text.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
   else
     echo "Can't find /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl for symlink."
   fi
-fi
 
-# Sublime Text preferences etc. to be shared between multiple machines.
+  # Sublime Text preferences etc. to be shared between multiple machines.
 
-# These files are constantly-changing and shouldn't be checked in.
-# Store them in Dropbox, and make all machines point to the Dropbox copies.
-if [ $(uname) = 'Darwin' ]; then
+  # These files are constantly-changing and shouldn't be checked in.
+  # Store them in Dropbox, and make all machines point to the Dropbox copies.
+
   # Handle Sublime 2 Preferences and packages.
   if [ -d "$DROPBOX_DIRECTORY/$LIB_SUBLIME_2/Installed Packages" ]
   then
@@ -41,4 +40,7 @@ if [ $(uname) = 'Darwin' ]; then
   else
     echo "Can't find $DROPBOX_DIRECTORY/$LIB_SUBLIME_3/Packages/User for symlinks."
   fi
+else
+  echo "Skipping Sublime Text setup on non-Macintosh machines."
+  echo "To fix this, edit sublime_setup.sh."
 fi
