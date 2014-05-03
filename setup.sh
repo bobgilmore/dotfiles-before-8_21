@@ -4,14 +4,8 @@
 source "$(pwd)/setup_utils.sh"
 
 ./homebrew_setup.sh
+./dotfile_setup.sh
 
-echo "Symlinking dotfiles in ~"
-for f in $DOTFILE_DIRECTORY/.* ; do
-  base=$(basename $f)
-  if [[ ($base != ".") && ($base != "..") && ($base != ".git") ]]; then
-    link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" $base
-  fi
-done
 
 echo "Symlinking local helper apps in ~/bin"
 mkdir -p "$BIN_DIRECTORY"
