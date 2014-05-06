@@ -29,8 +29,7 @@ if repo_exists
   # run git commit AGAIN.
   message = <<END
 
-An great set of git pre-commit hooks has been installed to this repo!
-
+A great set of git pre-commit hooks was just installed to this repo.
 Unfortunately, to make them work, this commit had to be aborted.
 Please commit again - they'll work fine from now on.
 
@@ -38,7 +37,6 @@ Please commit again - they'll work fine from now on.
 https://github.com/bobgilmore/githooks )
 
 @bob_gilmore
-
 END
 
   else
