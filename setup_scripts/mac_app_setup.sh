@@ -24,8 +24,8 @@ then
     cd $DOTFILE_DIRECTORY
     if [ -d "$NA_DIR" ]
     then
-      echo "Symlinking NA in $SCRIPT_DIRECTORY"
-      link_if_necessary "$NA_DIR" "$SCRIPT_DIRECTORY" "na.sh"
+      echo "Symlinking NA in $ALIASES_DIRECTORY"
+      link_if_necessary "$NA_DIR" "$ALIASES_DIRECTORY" "na.sh"
     else
       echo "Can't find directory $NA_DIR for symlink to the NA script."
     fi
