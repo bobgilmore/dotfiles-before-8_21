@@ -3,7 +3,8 @@
 # Find the location of the script.
 DOTFILE_DIRECTORY=`pwd`
 BIN_DIRECTORY="$HOME/bin"
-SCRIPT_DIRECTORY="$HOME/scripts"
+ALIASES_DIRECTORY="$HOME/aliases"
+SCRIPTS_DIRECTORY="$HOME/scripts"
 DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
 LIB_SUBLIME_2="Library/Application Support/Sublime Text 2"
 LIB_SUBLIME_3="Library/Application Support/Sublime Text 3"
