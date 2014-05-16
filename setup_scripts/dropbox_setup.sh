@@ -9,14 +9,15 @@ if [ ! -d "$HOME/Dropbox/" ]; then
   echo "------ TODO ------"
   echo "These setup scripts rely on Dropbox to share preferences between computers."
   echo "You should *really* get Dropbox set up on this machine."
-  echo "If you want to work with another service, i.e. Google Drive, go for it!"
+  echo "If you want to work with another service, i.e. Google Drive, "
+  echo "edit dropbox_setup.sh and submit a pull request."
   echo "---- END TODO ----"
   exit 0
 fi
 
 if [ ! -d "$DROPBOX_DIRECTORY" ]; then
   mkdir -p "$DROPBOX_DIRECTORY"
-  echo "Creating shared preference directory $DROPBOX_DIRECTORY"
+  echo "Creating shared pref dir $(basename $DROPBOX_DIRECTORY) in Dropbox"
 fi
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then

@@ -5,6 +5,7 @@
 # Load env vars and functions
 source "$(pwd)/setup_scripts/setup_utils.sh"
 
+echo "Git..."
 echo "Symlinking git hook directory to ~/.git_hook_symlink_installer"
 link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_hook_symlink_installer"
 
@@ -13,7 +14,7 @@ link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" ".git_hook_symlink_installer"
 gitconfig_init_templatedir=`git config --global --get init.templatedir`
 gitconfig_init_templatedirOLD=`git config --global --get init.templatedirOLD`
 if [[ ("${#gitconfig_init_templatedir}" > 0) && ("${#gitconfig_init_templatedirOLD}" == 0) ]]; then
-  echo "Copying old value of git variable init.templatedir to init.templatedirOLD."
+  echo "Old value of git variable init.templatedir copied to init.templatedirOLD"
   git config --global init.templatedirOLD "$gitconfig_init_templatedir"
 fi
 # OK, now, write (or overwrite) init.templatedir value.
@@ -24,3 +25,4 @@ if [[ ! $gitconfig_include_path == *~/.gitconfig_shared* ]] ; then
   echo "Including ~/.gitconfig_shared in ~/.gitconfig"
   git config --global --add include.path "~/.gitconfig_shared"
 fi
+echo "...Git done."
