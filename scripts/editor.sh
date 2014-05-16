@@ -4,7 +4,7 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
     case "$1" in
 	*_EDITMSG|*MERGE_MSG|*_TAGMSG )
-	    emacs "$1"
+	    $HOME/bin/subl -w "$1"
 	    ;;
 	*.md )
 	    $HOME/bin/mmdc "$1"
@@ -17,5 +17,5 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 	    ;;
     esac
 else
-    emacs "$1";
+    vim "$1";
 fi
