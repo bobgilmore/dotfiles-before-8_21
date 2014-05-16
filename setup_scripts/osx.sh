@@ -8,9 +8,6 @@
 echo "Changes require admin access - supply admin password if prompted:"
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -85,7 +82,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 #sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Restart automatically if the computer freezes
-systemsetup -setrestartfreeze on
+sudo systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
 #systemsetup -setcomputersleep Off > /dev/null
@@ -552,4 +549,4 @@ for app in "Address Book" "Contacts" "Dashboard" "Dock" "Finder" \
 	killall "$app" > /dev/null 2>&1
 done
 echo "Done."
-echo "Note that some of these changes require a logout/restart to take effect."
+echo "Some changes require a logout/restart to take effect."
