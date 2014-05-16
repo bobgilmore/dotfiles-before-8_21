@@ -5,13 +5,15 @@
 # Load env vars and functions
 source "$(pwd)/setup_scripts/setup_utils.sh"
 
+echo "Sublime..."
 if [ $(uname) = 'Darwin' ]; then
   # Create the "subl" symlink to open Sublime Text (3) from the cli
   if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
   then
+    mkdir -p "$BIN_DIRECTORY"
     link_if_necessary "/Applications/Sublime Text.app/Contents/SharedSupport/bin" "$BIN_DIRECTORY" "subl"
   else
-    echo "Can't find /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl for symlink."
+    echo "Sublime Text (version 3) not installed, skipping subl setup."
   fi
 
   # Sublime Text preferences etc. to be shared between multiple machines.
@@ -41,6 +43,6 @@ if [ $(uname) = 'Darwin' ]; then
     echo "Can't find $DROPBOX_DIRECTORY/$LIB_SUBLIME_3/Packages/User for symlinks."
   fi
 else
-  echo "Skipping Sublime Text setup on non-Macintosh machines."
-  echo "To fix this, edit sublime_setup.sh."
+  echo "Skipping Sublime Text setup on non-Mac. To fix this, edit sublime_setup.sh."
 fi
+echo "...Sublime done."
