@@ -12,9 +12,10 @@ mkdir -p $HOME_VIM/autoload
 curl -Sso $HOME_VIM/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-if [ -d "$DROPBOX_DIRECTORY/vim" ]; then
-  echo "Symlinking bundles in $HOME_VIM/bundle"
-  link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
+if [ ! -d "$DROPBOX_DIRECTORY/vim" ]; then
+  mkdir -p "$DROPBOX_DIRECTORY/vim/bundle"
 fi
+echo "Symlinking bundles in $HOME_VIM/bundle"
+link_if_necessary "$DROPBOX_DIRECTORY/vim" "$HOME_VIM" "bundle"
 
 echo "... Vim done"
