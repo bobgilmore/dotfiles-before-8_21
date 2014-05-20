@@ -9,8 +9,10 @@ install git
 install gnu-sed
 install heroku-toolbelt
 install hub
+install imagemagick
 install libidn
 install memcached
+install mongodb
 install multimarkdown
 install mysql
 install node
