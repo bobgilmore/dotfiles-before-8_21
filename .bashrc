@@ -40,16 +40,16 @@ export GIT_PS1_SHOWUPSTREAM=auto
 
 if [[ $(uname -n) == *local ]]
 then
-  uname_display="Local"
+  uname_display="local"
 else 
   uname_display=$(uname -n)
 fi
 
 if [ $(uname) = 'Darwin' ]
 then
-  export PS1="\[${BIBlue}\["'[$uname_display \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+  export PS1="\[${BIBlue}\["'\! \u@$uname_display \w$(__git_ps1 " (%s)") >\n\[\e[0m\['
 else
-  export PS1="\[${BIRed}\["'[$uname_display \u \W$(__git_ps1 " (%s)") ]\n\[\e[0m\['
+  export PS1="\[${BIRed}\["'\u@$uname_display \w$(__git_ps1 " (%s)") >\n\[\e[0m\['
 fi
 
 # Things that are obviously Mac-only go here.
