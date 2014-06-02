@@ -8,9 +8,9 @@ source "$(pwd)/setup_scripts/setup_utils.sh"
 echo "Vim..."
 # From https://github.com/tpope/vim-pathogen
 echo -e "Installing pathogen into $HOME_VIM/autoload"
-mkdir -p $HOME_VIM/autoload
-curl -Sso $HOME_VIM/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+mkdir -p $HOME_VIM/autoload $HOME_VIM/bundle
+curl -LSso $HOME_VIM/autoload/pathogen.vim \
+    https://tpo.pe/pathogen.vim
 
 if [ ! -d "$DROPBOX_DIRECTORY/vim" ]; then
   mkdir -p "$DROPBOX_DIRECTORY/vim/bundle"
