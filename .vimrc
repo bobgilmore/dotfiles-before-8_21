@@ -2,8 +2,6 @@
 
 execute pathogen#infect()
 execute pathogen#helptags()
-syntax on
-filetype plugin indent on
 
 " End tpope/pathogen.vim
 
@@ -15,16 +13,10 @@ set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=1000
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
+" Switch on highlighting the last used search pattern.
+if (&t_Co > 2)
+  syntax enable
 endif
 
 augroup vimrcEx
@@ -46,9 +38,6 @@ augroup END
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
 
 " Local config
 if filereadable(".vimrc.local")
