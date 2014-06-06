@@ -21,6 +21,7 @@ install phantomjs
 install postgresql
 install qt
 install rbenv
+install reattach-to-user-namespace
 install redis
 install ruby-build
 install sqlite
