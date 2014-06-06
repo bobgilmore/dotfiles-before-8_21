@@ -11,8 +11,9 @@ if [ $(uname) = 'Darwin' ]; then
     echo "Installing"
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   fi
-  brew doctor
   brew update
+  brew doctor
+  brew upgrade
   Echo "Installing formulae"
   brew bundle "$DOTFILE_DIRECTORY/setup_scripts"
 
