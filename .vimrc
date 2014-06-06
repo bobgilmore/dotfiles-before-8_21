@@ -76,5 +76,6 @@ set wildmode=list:longest " Activate tab auto-completion for file paths
 
 " more...
 set hidden
+let NERDTreeShowHidden=1
 
 map <C-n> :NERDTreeToggle<CR>
