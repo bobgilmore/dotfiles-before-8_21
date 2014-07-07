@@ -62,6 +62,8 @@ fi
 
 if [ -s "$HOME/scripts/na.sh" ]; then source "$HOME/scripts/na.sh"; fi
 
+export HISTFILESIZE=10000
+
 source ~/.alias
 
 # In case RVM is installed, set it up:
