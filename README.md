@@ -20,7 +20,7 @@ System and Finder preferences based on work by Mathias Bynens.
 
 Setup
 =====
-Will require a restart for all changes to take effect.
+Requires a restart for all changes to take effect.
 
 Clone the repository locally, then run the setup script.
 
