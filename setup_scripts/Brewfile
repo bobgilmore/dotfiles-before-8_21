@@ -12,6 +12,7 @@ install heroku-toolbelt
 install hub
 install imagemagick
 install libidn
+install macvim
 install memcached
 install mongodb
 install multimarkdown
@@ -19,6 +20,7 @@ install mysql
 install node
 install phantomjs
 install postgresql
+install python
 install qt
 install rbenv
 install reattach-to-user-namespace
