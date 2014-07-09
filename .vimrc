@@ -109,6 +109,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " From http://andrew.stwrt.ca/posts/vim-ctags
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+set cursorline
 set relativenumber
 
 " toggle between number and relativenumber
