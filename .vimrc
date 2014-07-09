@@ -109,6 +109,9 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " From http://andrew.stwrt.ca/posts/vim-ctags
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+" From https://github.com/Lokaltog/powerline/issues/39
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
 set cursorline
 set relativenumber
 
