@@ -67,6 +67,14 @@ au BufRead,BufNewFile *.md setlocal spell
 
 " end from
 
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+au BufRead,BufNewFile *.go set filetype=go
+
 set hlsearch
 set number
 set ignorecase

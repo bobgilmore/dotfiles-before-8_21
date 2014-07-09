@@ -76,3 +76,4 @@ source ~/.alias
 #export RUBY_FREE_MIN=500000
 #export RUBY_HEAP_MIN_SLOTS=40000
 
+export GOROOT=/usr/local/go
