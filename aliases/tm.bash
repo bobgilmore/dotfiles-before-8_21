@@ -8,7 +8,9 @@
 # window in the session, or to name the first window in a new session.
 tm() {
   local attach window
-   if [ -n $1 ]; then
+   if [ -n "$1" ]; then
+     echo "hi"
+     echo ":$1:"
      attach=""
      
      tmux has-session -t $1 > /dev/null
