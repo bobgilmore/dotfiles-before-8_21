@@ -83,6 +83,7 @@ set ignorecase
 set smartcase
 set title
 set wildmode=list:longest " Activate tab auto-completion for file paths
+set showcmd
 
 " more...
 set hidden
@@ -114,6 +115,11 @@ source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powe
 
 set cursorline
 set relativenumber
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Allow ;w => :w
+nnoremap ; :
 
 " toggle between number and relativenumber
 function! ToggleNumber()
