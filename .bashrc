@@ -45,12 +45,21 @@ else
   uname_display=$(uname -n)
 fi
 
-if [ $(uname) = 'Darwin' ]
-then
-  export PS1="\[${BIBlue}\["'\! \u@$uname_display \w$(__git_ps1 " (%s)") >\n\[\e[0m\['
+if [ $(uname) = 'Darwin' ]; then
+  MAIN_PROMPT_COLOR=${BIBlue}
 else
-  export PS1="\[${BIRed}\["'\u@$uname_display \w$(__git_ps1 " (%s)") >\n\[\e[0m\['
+  MAIN_PROMPT_COLOR=${BIRed}
 fi
+
+export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev/null;\
+  if [ $? -eq 0 ]; then \
+    echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+    if [ "$?" -eq "0" ]; then \
+      echo "'\\[${Green}\\['" ; \
+    else
+      echo "'\\[${Red}\\['" ; \
+    fi)"; \
+  fi)$(__git_ps1 " (%s)") > \n\[\e[0m\['
 
 # Things that are obviously Mac-only go here.
 if [ $(uname) = 'Darwin' ] 
