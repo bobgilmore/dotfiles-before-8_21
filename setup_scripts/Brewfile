@@ -9,6 +9,7 @@ install git
 install gnu-sed
 install ghostscript
 install heroku-toolbelt
+install hg
 install hub
 install imagemagick
 install libidn
