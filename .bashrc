@@ -1,4 +1,4 @@
-export GOPATH="$HOME/code/gorepos"
+export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$GOPATH/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
 
