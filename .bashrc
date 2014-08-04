@@ -1,3 +1,4 @@
+export GOROOT=/usr/local/go
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$GOPATH/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
@@ -85,5 +86,3 @@ source ~/.alias
 #export RUBY_GC_MALLOC_LIMIT=1000000000
 #export RUBY_FREE_MIN=500000
 #export RUBY_HEAP_MIN_SLOTS=40000
-
-export GOROOT=/usr/local/go
