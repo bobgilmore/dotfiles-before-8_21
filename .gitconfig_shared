@@ -49,4 +49,7 @@
   # The example below shows how to configure a particular project with different
   # git user information
   #osprofile = config user.email \"bobg@ourstage.com\"
+
+  # Adapted from http://brettterpstra.com/2014/08/04/shell-tricks-one-git-alias-to-rule-them-all/
+  finda = "!grepalias() { git config --get-regexp alias | grep -i \"$1\" | awk -v nr=2 '{sub(/^alias\\./,\"\")};{printf \"\\033[31m%_10s\\033[1;34m\", $1};{sep=FS};{for (x=nr; x<=NF; x++) {printf \"%s%s\", sep, $x; }; print \"\\033[0;39m\"}'; }; grepalias"
   
