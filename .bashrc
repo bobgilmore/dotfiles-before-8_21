@@ -1,6 +1,6 @@
 export GOROOT=/usr/local/go
 export GOPATH="$HOME/code/go"
-export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
 
 # Based on http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
