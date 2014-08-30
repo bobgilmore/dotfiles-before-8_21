@@ -5,9 +5,10 @@ install ctags
 install findutils
 install fish
 install freetype
+install ghostscript
 install git
 install gnu-sed
-install ghostscript
+install go
 install heroku-toolbelt
 install hg
 install hub
