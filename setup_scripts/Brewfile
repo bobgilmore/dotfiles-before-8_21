@@ -13,6 +13,7 @@ install heroku-toolbelt
 install hg
 install hub
 install imagemagick
+install jq
 install libidn
 install macvim
 install memcached
