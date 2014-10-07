@@ -14,8 +14,60 @@ if [ $(uname) = 'Darwin' ]; then
   brew update
   brew doctor
   brew upgrade
+
   Echo "Installing formulae"
-  brew bundle "$DOTFILE_DIRECTORY/setup_scripts"
+
+  brew install ack
+  brew install bash
+  brew install coreutils
+  brew install ctags
+  brew install findutils
+  brew install fish
+  brew install freetype
+  brew install ghostscript
+  brew install git
+  brew install gitsh
+  brew install gnu-sed
+  brew install go
+  brew install grep
+  brew install heroku-toolbelt
+  brew install hg
+  brew install hub
+  brew install imagemagick
+  brew install jq
+  brew install libidn
+  brew install macvim
+  brew install memcached
+  brew install mercurial
+  brew install mongodb
+  brew install multimarkdown
+  brew install mysql
+  brew install node
+  brew install phantomjs
+  brew install postgresql
+  brew install python
+  brew install qt
+  brew install rbenv
+  brew install reattach-to-user-namespace
+  brew install redis
+  brew install ruby-build
+  brew install sqlite
+  brew install the_silver_searcher
+  brew install tmux
+  brew install tree
+  brew install vim
+  brew install webkit2png
+  brew install wget
+  brew tap homebrew/dupes
+  brew install grep
+  brew tap thoughtbot/formulae
+  brew install gitsh
+  brew linkapps
+
+  # Homebrew core team broke brew services, so disable for now and revisit if it becomes necessary.
+  # https://github.com/Homebrew/homebrew/issues/28657
+  #brew services restart mysql
+  #brew services restart redis
 
   # Ask for the administrator password upfront
   echo "Changes require admin access - supply admin password if prompted:"
