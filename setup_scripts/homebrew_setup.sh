@@ -21,9 +21,10 @@ if [ $(uname) = 'Darwin' ]; then
   echo "Changes require admin access - supply admin password if prompted:"
   sudo -v
 
-  echo "Adding fish shell"
   # Add fish and bash to the list of acceptable shells.
+  echo "Adding fish shell"
   grep -q '/usr/local/bin/fish' /etc/shells || echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+  echo "Adding bash shell"
   grep -q '/usr/local/bin/bash' /etc/shells || echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
 fi
 echo "...Homebrew done."
