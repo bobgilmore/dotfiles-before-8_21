@@ -53,6 +53,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install ruby-build
   brew install sqlite
   brew install the_silver_searcher
+  brew install tig
   brew install tmux
   brew install tree
   brew install vim
