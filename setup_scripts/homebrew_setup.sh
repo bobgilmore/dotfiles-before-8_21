@@ -23,7 +23,6 @@ if [ $(uname) = 'Darwin' ]; then
   brew install ctags
   brew install findutils
   brew install fish
-  brew install freetype
   brew install ghostscript
   brew install git
   brew install gitsh
@@ -31,7 +30,6 @@ if [ $(uname) = 'Darwin' ]; then
   brew install go
   brew install grep
   brew install heroku-toolbelt
-  brew install hg
   brew install hub
   brew install imagemagick
   brew install jq
@@ -59,10 +57,13 @@ if [ $(uname) = 'Darwin' ]; then
   brew install vim
   brew install webkit2png
   brew install wget
+
   brew tap homebrew/dupes
   brew install grep
   brew tap thoughtbot/formulae
   brew install gitsh
+
+  brew cleanup
   brew linkapps
 
   # Homebrew core team broke brew services, so disable for now and revisit if it becomes necessary.
