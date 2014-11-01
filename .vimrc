@@ -41,6 +41,8 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+let g:Powerline_symbols = 'fancy'
+
 " Local config
 if filereadable(".vimrc.local")
   source .vimrc.local
@@ -133,4 +135,3 @@ function! ToggleNumber()
     set relativenumber
   endif
 endfunc
-
