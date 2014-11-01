@@ -13,12 +13,12 @@ for f in $DOTFILE_DIRECTORY/.* ; do
   fi
 done
 
-echo "Symlinking .config in ~"
-mkdir -p "$HOME/.config"
-for f in $DOTFILE_DIRECTORY/.config/* ; do
-  base=$(basename $f)
-  if [[ ($base != ".") && ($base != "..") ]]; then
-    link_if_necessary "$DOTFILE_DIRECTORY/.config" "$HOME/.config" $base
-  fi
-done
+#echo "Symlinking .config in ~"
+#mkdir -p "$HOME/.config"
+#for f in $DOTFILE_DIRECTORY/.config/* ; do
+#  base=$(basename $f)
+#  if [[ ($base != ".") && ($base != "..") ]]; then
+#    link_if_necessary "$DOTFILE_DIRECTORY/.config" "$HOME/.config" $base
+#  fi
+#done
 
