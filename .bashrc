@@ -5,7 +5,6 @@ export EDITOR="$HOME/scripts/editor.sh"
 
 # Based on http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxcxegedabagacad
 
 # For rbenv
 # To enable shims and autocompletion add to your profile:
@@ -43,7 +42,7 @@ export GIT_PS1_SHOWUPSTREAM=auto
 if [[ $(uname -n) == *local ]]
 then
   uname_display="local"
-else 
+else
   uname_display=$(uname -n)
 fi
 
@@ -64,7 +63,7 @@ export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev
   fi)$(__git_ps1 " (%s)") > \n\[\e[0m\['
 
 # Things that are obviously Mac-only go here.
-if [ $(uname) = 'Darwin' ] 
+if [ $(uname) = 'Darwin' ]
 then
   # Make Terminal tab completion rational on Mac
   # From http://sigpipe.macromates.com/2012/08/10/path-completion-bash/
