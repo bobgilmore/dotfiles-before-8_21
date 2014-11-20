@@ -1,6 +1,8 @@
 # Shared git configuration settings, from https://github.com/bobgilmore/dotfiles
 [color]
   ui = true
+[push]
+  default = simple
 [alias]
   # http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
   c = commit -m
