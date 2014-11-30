@@ -3,6 +3,15 @@ export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
 
+# CDPATH completon http://pivotallabs.com/cdpath-bash-completion-in-osx/
+# http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
+if [ -d "$HOME/code" ]; then
+  export CDPATH=".:$(find $HOME/code -type d -depth 1 | tr '\n' ':')"
+fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 # Based on http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 export CLICOLOR=1
 
