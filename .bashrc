@@ -6,7 +6,7 @@ export EDITOR="$HOME/scripts/editor.sh"
 # CDPATH completon http://pivotallabs.com/cdpath-bash-completion-in-osx/
 # http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
 if [ -d "$HOME/code" ]; then
-  export CDPATH=".:$(find $HOME/code -type d -depth 1 | tr '\n' ':')"
+  export CDPATH=".:$(find $HOME/code -type d -depth 1 -maxdepth 1 | tr '\n' ':')"
 fi
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
