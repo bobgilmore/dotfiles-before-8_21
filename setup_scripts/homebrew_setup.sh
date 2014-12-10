@@ -46,6 +46,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install postgresql
   brew install python
   brew install qt
+  brew install rabbitmq
   brew install rbenv
   brew install reattach-to-user-namespace
   brew install redis
