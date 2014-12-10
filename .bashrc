@@ -71,6 +71,12 @@ export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev
     fi)"; \
   fi)$(__git_ps1 " (%s)") > \n\[\e[0m\['
 
+if [ $(whoami) = 'root' ]
+then
+  red
+  echo "You're using a root shell.  ROOT?  Are you insane?"
+fi
+
 # Things that are obviously Mac-only go here.
 if [ $(uname) = 'Darwin' ]
 then
