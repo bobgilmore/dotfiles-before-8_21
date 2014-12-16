@@ -1,6 +1,6 @@
 export GOROOT="/usr/local/opt/go/libexec/"
 export GOPATH="$HOME/code/go"
-export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/Library/Haskell/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
 
 # CDPATH completon http://pivotallabs.com/cdpath-bash-completion-in-osx/
