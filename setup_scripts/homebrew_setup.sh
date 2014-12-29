@@ -22,6 +22,8 @@ if [ $(uname) = 'Darwin' ]; then
   brew install bash-completion
   brew install coreutils
   brew install ctags
+  # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
+  brew install --cocoa --srgb emacs 
   brew install findutils
   brew install fish
   brew install ghostscript
