@@ -26,3 +26,5 @@ fi
 for f in ~/aliases/*; do
   source "$f"
 done
+
+alias be='bundle exec'
