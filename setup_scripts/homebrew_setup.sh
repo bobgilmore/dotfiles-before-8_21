@@ -20,6 +20,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install ack
   brew install bash
   brew install bash-completion
+  brew install cask
   brew install coreutils
   brew install ctags
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
