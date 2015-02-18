@@ -95,6 +95,11 @@ then
   source ~/.alias
 fi
 
+if [ -f /usr/local/bin/tmux ]
+then
+  tmux list-sessions 2> /dev/null
+fi
+
 # In case RVM is installed, set it up:
 # This loads RVM into a shell session. If editing this file, keep this at the end.
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
