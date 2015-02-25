@@ -23,6 +23,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install cask
   brew install coreutils
   brew install ctags
+  brew install elixir
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
   brew install --cocoa --srgb emacs 
   brew install findutils
