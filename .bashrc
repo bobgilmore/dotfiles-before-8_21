@@ -1,3 +1,10 @@
+function function_exists {
+    FUNCTION_NAME=$1
+    [ -z "$FUNCTION_NAME" ] && return 1
+    declare -F "$FUNCTION_NAME" > /dev/null 2>&1
+    return $?
+}
+
 export GOROOT="/usr/local/opt/go/libexec/"
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/Library/Haskell/bin:$HOME/.cask/bin:$PATH"
@@ -62,7 +69,8 @@ else
   MAIN_PROMPT_COLOR=${BIRed}
 fi
 
-export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev/null;\
+if function_exists __git_ps1; then
+  export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev/null;\
   if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
@@ -71,7 +79,8 @@ export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev
       echo "'\\[${Red}\\['" ; \
     fi)"; \
   fi)$(__git_ps1 " (%s)") > \n\[\e[0m\['
-
+fi
+			 
 if [ $(whoami) = 'root' ]
 then
   red
