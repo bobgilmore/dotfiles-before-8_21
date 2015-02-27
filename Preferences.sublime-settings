@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"draw_indent_guides": false,
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
@@ -9,21 +9,23 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 22,
+	"font_size": 20,
 	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"open_files_in_new_window": true,
-	"soda_classic_tabs": false,
-	"soda_folder_icons": true,
 	"spell_check": true,
-	"sublimelinter_popup_errors_on_save": true,
 	"tab_size": 2,
-	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
-	"show_tab_close_buttons": true,
-	"draw_indent_guides": false
 }
+
+// In trailing_spaces.sublime-settings
+//{
+//  "trailing_spaces_highlight_color": "comment",
+//  "trailing_spaces_include_current_line": false,
+//  "trailing_spaces_modified_lines_only": true,
+//  "trailing_spaces_trim_on_save": true
+//}
