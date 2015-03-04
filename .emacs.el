@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 (global-set-key (kbd "C-c C-v") 'shell)
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
