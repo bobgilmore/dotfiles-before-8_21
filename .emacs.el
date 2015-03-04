@@ -15,3 +15,10 @@
 (require 'pallet)
 
 (mapc 'load (directory-files "~/.emacs.d/customizations" t "^[0-9]+.*\.el$"))
+
+(require 'highlight-chars)
+(add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
+
+(require 'ws-trim)
+(global-ws-trim-mode t)
+(set-default 'ws-trim-level 1)
