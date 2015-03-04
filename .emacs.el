@@ -22,3 +22,15 @@
 (require 'ws-trim)
 (global-ws-trim-mode t)
 (set-default 'ws-trim-level 1)
+
+;; http://www.emacswiki.org/emacs/DotEmacsChallenge
+(setq-default indent-tabs-mode nil)
+(setq require-final-newline 't)
+(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
+(global-set-key "\C-cg" 'goto-line)
+(global-set-key "\C-cG" 'goto-char)
+(global-set-key "\C-cw" 'delete-region) ; ala C-w and M-C-w
+(global-set-key "\C-cc" 'comment-region)
+(global-set-key "\C-cu" 'uncomment-region)
+
+(column-number-mode 1)
