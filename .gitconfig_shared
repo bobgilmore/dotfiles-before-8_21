@@ -58,3 +58,5 @@
 
   # Other
   ss = status
+  dd = difftool
+
