@@ -49,3 +49,8 @@ function gh() {
   giturl=$giturl/$branch
   open $giturl
 }
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+#alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update"
+alias update="brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;"
