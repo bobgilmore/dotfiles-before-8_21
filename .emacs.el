@@ -1,5 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 (global-set-key (kbd "C-c C-v") 'shell)
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
@@ -13,8 +11,6 @@
 (require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
 (cask-initialize)
 (require 'pallet)
-
-(mapc 'load (directory-files "~/.emacs.d/customizations" t "^[0-9]+.*\.el$"))
 
 (require 'highlight-chars)
 (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
@@ -32,5 +28,10 @@
 (global-set-key "\C-cw" 'delete-region) ; ala C-w and M-C-w
 (global-set-key "\C-cc" 'comment-region)
 (global-set-key "\C-cu" 'uncomment-region)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/color-theme-tangotango")
 
 (column-number-mode 1)
+(mapc 'load (directory-files "~/.emacs.d/customizations" t "^[0-9]+.*\.el$"))
