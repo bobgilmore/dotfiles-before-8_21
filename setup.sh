@@ -2,6 +2,7 @@
 
 ./setup_scripts/dropbox_setup.sh
 ./setup_scripts/homebrew_setup.sh
+./setup_scripts/npm_setup.sh
 ./setup_scripts/dotfile_setup.sh
 ./setup_scripts/posix_app_setup.sh
 ./setup_scripts/sublime_setup.sh
