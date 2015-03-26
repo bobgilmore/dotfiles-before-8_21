@@ -63,8 +63,8 @@ end
 
 # dayonedir = %x{ls ~/Library/Mobile\\ Documents/|grep dayoneapp}.strip
 # dayonepath = "~/Library/Mobile\ Documents/#{dayonedir}/Documents/Journal_dayone/entries/"
-dayonepath = "/Users/USERNAME/Dropbox/Apps/Day\ One/Journal.dayone/entries/"
-files = %x{mdfind -onlyin /Users/USERNAME/Dropbox/IFTTT -name '.txt' | grep -v -i daily | sort}
+dayonepath = "/Users/#{ENV['USER']}/Dropbox/Apps/Day One/Journal.dayone/entries/"
+files = %x{mdfind -onlyin /Users/#{ENV['USER']}/Dropbox/IFTTT -name '.txt' | grep -v -i daily | sort}
 
 date_range.each do |date|
   formatted_date = date.strftime('%B %d, %Y')
