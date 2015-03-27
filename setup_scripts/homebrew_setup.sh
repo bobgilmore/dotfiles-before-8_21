@@ -35,6 +35,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install go
   brew install grep
   brew install heroku-toolbelt
+  brew install hh
   brew install hub
   brew install imagemagick
   brew install jq

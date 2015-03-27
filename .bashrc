@@ -98,6 +98,7 @@ fi
 if [ -s "$HOME/scripts/na.sh" ]; then source "$HOME/scripts/na.sh"; fi
 
 export HISTFILESIZE=10000
+export HISTSIZE=${HISTFILESIZE}
 
 if [ -f ~/.alias ]
 then
@@ -118,3 +119,10 @@ fi
 export RUBY_GC_MALLOC_LIMIT=1000000000
 #export RUBY_FREE_MIN=500000
 export RUBY_GC_HEAP_FREE_SLOTS=40000
+
+# For hh command line completion - https://github.com/dvorka/hstr/blob/master/CONFIGURATION.md
+bind '"\C-r": "\C-ahh \C-j"'
+export HH_CONFIG=hicolor
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+shopt -s histappend
+export HISTCONTROL=ignorespace
