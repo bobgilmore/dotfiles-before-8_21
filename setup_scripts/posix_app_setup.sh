@@ -15,3 +15,6 @@ mkdir -p "$SCRIPTS_DIRECTORY"
 for f in $DOTFILE_DIRECTORY/scripts/*; do
   link_if_necessary "$DOTFILE_DIRECTORY/scripts" "$SCRIPTS_DIRECTORY" $(basename $f)
 done
+
+curl -L http://github.com/micha/resty/raw/master/resty > ~/scripts/resty
+chmod 744 ~/scripts/resty
