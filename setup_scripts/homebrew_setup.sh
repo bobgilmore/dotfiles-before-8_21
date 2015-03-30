@@ -21,11 +21,13 @@ if [ $(uname) = 'Darwin' ]; then
   brew install bash
   brew install bash-completion
   brew install cask
+  brew install choose
   brew install coreutils
   brew install ctags
   brew install elixir
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
-  brew install --cocoa --srgb emacs 
+  brew install --cocoa --srgb emacs
+  brew install erlang
   brew install findutils
   brew install fish
   brew install ghostscript
@@ -47,6 +49,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install multimarkdown
   brew install mysql
   brew install node
+  brew install ossp-uuid
   brew install phantomjs
   brew install postgresql
   brew install python
