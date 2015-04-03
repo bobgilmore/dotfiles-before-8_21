@@ -65,6 +65,7 @@ if [ $(uname) = 'Darwin' ]; then
   brew install tmux
   brew install tree
   brew install vim
+  brew install watchman
   brew install webkit2png
   brew install wget
 
