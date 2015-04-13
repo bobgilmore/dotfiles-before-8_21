@@ -1,4 +1,5 @@
 {
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"draw_indent_guides": false,
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
@@ -9,7 +10,7 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 20,
+	"font_size": 18,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -19,13 +20,5 @@
 	"spell_check": true,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
-	"use_tab_stops": true,
+	"use_tab_stops": true
 }
-
-// In trailing_spaces.sublime-settings
-//{
-//  "trailing_spaces_highlight_color": "comment",
-//  "trailing_spaces_include_current_line": false,
-//  "trailing_spaces_modified_lines_only": true,
-//  "trailing_spaces_trim_on_save": true
-//}
