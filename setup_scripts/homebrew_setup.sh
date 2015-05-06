@@ -13,7 +13,7 @@ if [ $(uname) = 'Darwin' ]; then
   fi
   brew update
   brew doctor
-  brew upgrade
+  brew upgrade --all
 
   Echo "Installing formulae"
 
