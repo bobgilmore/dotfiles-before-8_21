@@ -5,7 +5,7 @@
 # Load env vars and functions
 source "$(pwd)/setup_scripts/setup_utils.sh"
 
-if [ $(uname) = 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
   echo "Sublime Text..."
 
   # Create the "subl" symlink to open Sublime Text (3) from the cli

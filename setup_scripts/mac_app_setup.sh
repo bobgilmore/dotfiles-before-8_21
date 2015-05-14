@@ -6,28 +6,28 @@
 source "$(pwd)/setup_scripts/setup_utils.sh"
 
 # Perform operations that only make sense on a Mac...
-if [ $(uname) = 'Darwin' ]
+if [ "$(uname)" = 'Darwin' ]
 then
-  
+
   # Install Brett Terpstra's na script - https://github.com/ttscoff/na
-  
+
   NA_DIR="$DOTFILE_DIRECTORY/na"
   if [ -d "$NA_DIR" ]; then
     echo "Updating NA script for TaskPaper.  See http://brettterpstra.com/projects/na/"
-    cd $NA_DIR && git pull
+    cd "$NA_DIR" && git pull
   else
     # Cloning to $NA_DIR
     echo "Installing NA script for TaskPaper into $NA_DIR.  See http://brettterpstra.com/projects/na/"
-    git clone https://github.com/ttscoff/na.git $NA_DIR
+    git clone https://github.com/ttscoff/na.git "$NA_DIR"
   fi
-  cd $DOTFILE_DIRECTORY
+  cd "$DOTFILE_DIRECTORY"
   if [ -d "$NA_DIR" ]
   then
     link_if_necessary "$NA_DIR" "$ALIASES_DIRECTORY" "na.sh"
   else
     echo "Error: $NA_DIR not found."
   fi
-  
+
   if [ ! -d "/Applications/TaskPaper.app" ]
   then
     echo "------ TODO ------"
