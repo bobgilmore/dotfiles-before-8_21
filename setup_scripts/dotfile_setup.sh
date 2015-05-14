@@ -7,9 +7,9 @@ source "$(pwd)/setup_scripts/setup_utils.sh"
 
 echo "Symlinking dotfiles in ~"
 for f in $DOTFILE_DIRECTORY/.* ; do
-  base=$(basename $f)
+  base="$(basename $f)"
   if [[ ($base != ".") && ($base != "..") && ($base != ".git") && ($base != ".config") ]]; then
-    link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" $base
+    link_if_necessary "$DOTFILE_DIRECTORY" "$HOME" "$base"
   fi
 done
 

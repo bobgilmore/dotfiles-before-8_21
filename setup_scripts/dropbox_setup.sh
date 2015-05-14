@@ -17,7 +17,7 @@ fi
 
 if [ ! -d "$DROPBOX_DIRECTORY" ]; then
   mkdir -p "$DROPBOX_DIRECTORY"
-  echo "Creating shared pref dir $(basename $DROPBOX_DIRECTORY) in Dropbox"
+  echo "Creating shared pref dir $(basename "$DROPBOX_DIRECTORY") in Dropbox"
 fi
 
 if [ -d "$DROPBOX_DIRECTORY" ]; then

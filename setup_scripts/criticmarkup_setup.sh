@@ -28,13 +28,13 @@ then
   CRIT_DIR="$DOTFILE_DIRECTORY/CriticMarkup-toolkit"
   if [ -d "$CRIT_DIR" ]; then
     echo "Updating CriticMarkup-toolkit"
-    cd $CRIT_DIR && git pull
+    cd "$CRIT_DIR" && git pull
   else
     # Cloning to $CRIT_DIR
     echo "=> Cloning CriticMarkup-toolkit into $CRIT_DIR"
-    git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git $CRIT_DIR
+    git clone https://github.com/CriticMarkup/CriticMarkup-toolkit.git "$CRIT_DIR"
   fi
-  cd $DOTFILE_DIRECTORY
+  cd "$DOTFILE_DIRECTORY"
   if [ -d "$CRIT_DIR" ]
   then
     echo "Symlinking CriticMarkup-toolkit in $SCRIPT_DIRECTORY"
