@@ -35,17 +35,21 @@ then
     echo "---- END TODO ----"
   fi
 
-  echo "------ TODO ------"
   if [ -d "/Applications/Karabiner.app/" ]
   then
-    mkdir -m 755 -p "$HOME/Library/Application Support/Karabiner/"
-    link_if_necessary "$DOTFILE_DIRECTORY" "$HOME/Library/Application Support/Karabiner" "private.xml"
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
-    echo "When installation is complete,"
-    echo "Run Karabiner, open its Preference pane, go to the Change Key panel, and check all of the check boxes at the top of the remapping list."
-    echo "This will enable Hyper key.  See http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/ for more on implementing it." 
+    if [ ! -L "$HOME/Library/Application Support/Karabiner/private.xml" ]
+    then
+      echo "------ TODO ------"
+      mkdir -m 755 -p "$HOME/Library/Application Support/Karabiner/"
+      link_if_necessary "$DOTFILE_DIRECTORY" "$HOME/Library/Application Support/Karabiner" "private.xml"
+      /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+      echo "When installation is complete, run Karabiner, go to the Change Key panel, and check the boxes at the top of the remapping list."
+      echo "This will enable the Hyper key.  See http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/ for more on implementing it."
+      echo "---- END TODO ----"
+    fi
   else
+    echo "------ TODO ------"
     echo "You should install Karabiner, then run this setup script again."
+    echo "---- END TODO ----"
   fi
-  echo "---- END TODO ----"
 fi
