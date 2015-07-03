@@ -9,7 +9,7 @@ execute pathogen#helptags()
 
 " From https://github.com/thoughtbot/dotfiles/blob/master/vimrc
 " Leader
-let mapleader = " "
+let mapleader = "\<Space>"
 
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
@@ -106,7 +106,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 
   " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 
 " bind K to grep word under cursor
@@ -120,8 +120,8 @@ source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powe
 
 set cursorline
 set relativenumber
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 
 " Allow ;w => :w
 nnoremap ; :
@@ -135,3 +135,8 @@ function! ToggleNumber()
     set relativenumber
   endif
 endfunc
+
+" From https://upcase.com/videos/onramp-to-vim-configuration
+set scrolloff=4
+set backspace=indent,eol,start
+
