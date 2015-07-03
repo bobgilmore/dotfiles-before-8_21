@@ -140,3 +140,6 @@ endfunc
 set scrolloff=4
 set backspace=indent,eol,start
 
+" Ditto.  Make scrolling through wrapped lines tolerable
+nmap k gk
+nmap j gj
