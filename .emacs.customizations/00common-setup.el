@@ -35,3 +35,5 @@
 (prefer-coding-system 'utf-8)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; From http://melpa.org/#/dash-at-point
+(global-set-key "\C-cd" 'dash-at-point)
