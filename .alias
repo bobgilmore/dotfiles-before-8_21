@@ -28,6 +28,7 @@ for f in ~/aliases/*; do
 done
 
 alias be='bundle exec'
+alias ber='bundle exec rspec'
 
 # Adapted with *slight* modification from https://jasonneylon.wordpress.com/2011/04/22/opening-github-in-your-browser-from-the-terminal/
 # Opens the github page for the current git repository in your browser
