@@ -97,8 +97,10 @@ fi
 
 if [ -s "$HOME/scripts/na.sh" ]; then source "$HOME/scripts/na.sh"; fi
 
-export HISTFILESIZE=10000
+export HISTFILESIZE=3000
 export HISTSIZE=${HISTFILESIZE}
+export HISTCONTROL=ignoredups
+export HISTIGNORE="pwd:ls:ls -latr:git status:"
 
 if [ -f ~/.alias ]
 then
@@ -125,4 +127,3 @@ bind '"\C-r": "\C-ahh \C-j"'
 export HH_CONFIG=hicolor
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 shopt -s histappend
-export HISTCONTROL=ignorespace
