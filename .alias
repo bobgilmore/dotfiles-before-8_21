@@ -55,3 +55,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 #alias update="sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update"
 alias update="brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g;"
+
+# From https://groups.google.com/forum/#!topic/docker-user/LQM_k-SMsAY
+alias docker-init="source /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh"
