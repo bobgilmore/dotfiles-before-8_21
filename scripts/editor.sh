@@ -13,7 +13,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
       "$HOME/bin/mmdc $1"
       ;;
   * )
-      "$HOME/bin/subl -w $1"
+      #"$HOME/bin/subl -w $1"
+      vim "$1";
       ;;
     esac
 else
