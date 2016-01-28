@@ -8,7 +8,8 @@ source "$(pwd)/setup_scripts/setup_utils.sh"
 echo "Vim..."
 # From https://github.com/tpope/vim-pathogen
 echo -e "Installing pathogen into $HOME_VIM/autoload"
-mkdir -p "$HOME_VIM/autoload $HOME_VIM/bundle"
+mkdir -p "$HOME_VIM/autoload"
+mkdir -p "$HOME_VIM/bundle"
 curl -LSso "$HOME_VIM/autoload/pathogen.vim" \
     https://tpo.pe/pathogen.vim
 
