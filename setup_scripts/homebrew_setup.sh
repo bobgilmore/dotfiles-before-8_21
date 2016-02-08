@@ -89,5 +89,9 @@ if [ "$(uname)" = 'Darwin' ]; then
   grep -q '/usr/local/bin/fish' /etc/shells || echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
   echo "Adding bash shell"
   grep -q '/usr/local/bin/bash' /etc/shells || echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
+
+  # Install powerline for use by vim.  This is done by pip, not homebrew, but I'm not bothering with
+  # a pip_setup.sh yet.
+  pip install powerline-status
 fi
 echo "...Homebrew done."
