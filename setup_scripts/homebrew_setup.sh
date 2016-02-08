@@ -9,7 +9,7 @@ echo "Homebrew..."
 if [ "$(uname)" = 'Darwin' ]; then
   if [ ! -f /usr/local/bin/brew ]; then
     echo "Installing"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
   brew update
   brew doctor
