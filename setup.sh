@@ -8,6 +8,7 @@
 ./setup_scripts/sublime_setup.sh
 ./setup_scripts/git_setup.sh
 ./setup_scripts/vim_setup.sh
+./setup_scripts/emacs_setup.sh
 # Mac-specific code
 if [ "$(uname)" == "Darwin" ]; then
   ./setup_scripts/mac_app_setup.sh
