@@ -5,6 +5,7 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resour
 #alias restarthard='rm -rf tmp/cache/sass/*; rm -rf tmp/cache/assets/*; touch tmp/restart.txt'
 
 alias ss='subl'
+alias aa='atom'
 
 function daywork() {
   echo "$1 #work" | dayone new
