@@ -21,12 +21,22 @@ function daycocktail() {
 
 alias daydrink='daycocktail'
 
+# Source various "externally defined" aliases:
+# First, those created by Brett Terpstra's alias generator
 if [ -f ~/.alias.generated ]; then
   source ~/.alias.generated
 fi
+# Then some very complicated aliases (really, bash functions) that I've
+# implemented in their own bash scripts.
 for f in ~/aliases/*; do
   source "$f"
 done
+# Finally, read a purely custom .alias.local if it exists.
+# Among other things this allows me to keep proprietary information
+# (such as server names) out of my public dotfiles repo.
+if [ -f ~/.alias.local ]; then
+  source ~/.alias.local
+fi
 
 alias be='bundle exec'
 alias ber='bundle exec rspec'
