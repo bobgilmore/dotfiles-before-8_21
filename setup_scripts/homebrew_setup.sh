@@ -68,6 +68,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install watchman
   brew install webkit2png
   brew install wget
+  brew install zsh
 
   brew tap homebrew/dupes
   brew install grep
@@ -84,11 +85,13 @@ if [ "$(uname)" = 'Darwin' ]; then
   echo "Changes require admin access - supply admin password if prompted:"
   sudo -v
 
-  # Add fish and bash to the list of acceptable shells.
+  # Add fish, and Homebrew's bash and zsh, to the list of acceptable shells.
   echo "Adding fish shell"
   grep -q '/usr/local/bin/fish' /etc/shells || echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
   echo "Adding bash shell"
   grep -q '/usr/local/bin/bash' /etc/shells || echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
+  echo "Adding zsh shell"
+  grep -q '/usr/local/bin/zsh' /etc/shells || echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
 
   # Install powerline for use by vim.  This is done by pip, not homebrew, but I'm not bothering with
   # a pip_setup.sh yet.
