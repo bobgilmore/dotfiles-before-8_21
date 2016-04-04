@@ -13,6 +13,9 @@ for f in $DOTFILE_DIRECTORY/.* ; do
   fi
 done
 
+# Use bash.  Without this, we'd have to make all of the tab completion calls etc. robust to the shell.
+chsh -s /bin/bash
+
 #echo "Symlinking .config in ~"
 #mkdir -p "$HOME/.config"
 #for f in $DOTFILE_DIRECTORY/.config/* ; do
@@ -21,4 +24,3 @@ done
 #    link_if_necessary "$DOTFILE_DIRECTORY/.config" "$HOME/.config" $base
 #  fi
 #done
-
