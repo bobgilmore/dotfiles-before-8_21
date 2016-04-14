@@ -47,6 +47,8 @@
   la = "!git config -l | grep alias | cut -c 7-"
   # Show tree
   logtree = "log --graph --oneline --decorate --all"
+  # Generate patch file
+  genpatchb = !sh -c 'git diff $1 --no-prefix --full-index' -
 
   # Alternate profiles
   # The example below shows how to configure a particular project with different
@@ -59,4 +61,3 @@
   # Other
   ss = status
   dd = difftool
-
