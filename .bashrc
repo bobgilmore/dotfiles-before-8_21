@@ -80,7 +80,7 @@ if function_exists __git_ps1; then
     fi)"; \
   fi)$(__git_ps1 " (%s)") > \n\[\e[0m\['
 fi
-			 
+
 if [ $(whoami) = 'root' ]
 then
   red
@@ -127,3 +127,10 @@ bind '"\C-r": "\C-ahh \C-j"'
 export HH_CONFIG=hicolor
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 shopt -s histappend
+
+# Finally, read a purely custom .bashrc.local if it exists.
+# Among other things this allows me to keep proprietary information
+# (such as server names) out of my public dotfiles repo.
+if [ -f ~/.bashrc.local ]; then
+  source ~/.bashrc.local
+fi
