@@ -10,6 +10,9 @@ export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:$HOME/scripts/colors:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/Library/Haskell/bin:$HOME/.cask/bin:$PATH"
 export EDITOR="$HOME/scripts/editor.sh"
 export MANPATH="$MANPATH:/usr/local/opt/erlang/lib/erlang/man"
+# Opt out of Homebrew analytics
+# https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
+export HOMEBREW_NO_ANALYTICS=1
 
 # CDPATH completon http://pivotallabs.com/cdpath-bash-completion-in-osx/
 # http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
