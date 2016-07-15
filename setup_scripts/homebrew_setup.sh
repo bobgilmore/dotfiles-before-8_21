@@ -35,6 +35,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install ghostscript
   brew install git
   brew install gnu-sed
+  brew install graphviz
   brew install homebrew/dupes/grep
   brew install heroku-toolbelt
   brew install hh
