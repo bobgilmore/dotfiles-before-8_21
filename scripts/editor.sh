@@ -1,9 +1,10 @@
 #!/bin/bash
 
+echo $1
 unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
     case "$1" in
-  *_EDITMSG|*MERGE_MSG|*_TAGMSG )
+  *_EDITMSG|*MERGE_MSG|*_TAGMSG|*git-rebase-todo )
       #"$HOME/bin/subl -w $1"
       atom --wait "$1";
       ;;
