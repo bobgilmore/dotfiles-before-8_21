@@ -23,6 +23,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install boot2docker
   brew install beeftornado/rmtree/brew-rmtree
   brew install cask
+  brew install cocoapods
   brew install coreutils
   brew install ctags
   brew install docker-compose
