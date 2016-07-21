@@ -48,7 +48,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install macvim
   brew install memcached
   brew install mercurial
-  brew install homebrew/versions/mongodb26
   brew install multimarkdown
   brew install mysql
   brew install node
