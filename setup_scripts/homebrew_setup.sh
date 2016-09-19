@@ -61,6 +61,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install reattach-to-user-namespace
   brew install redis
   brew install ruby-build
+  brew install scons
   brew install the_silver_searcher
   brew install tig
   brew install tmux
