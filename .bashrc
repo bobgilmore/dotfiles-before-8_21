@@ -19,8 +19,12 @@ export HOMEBREW_NO_ANALYTICS=1
 if [ -d "$HOME/code" ]; then
   export CDPATH=".:$(find $HOME/code -type d -depth 1 -maxdepth 1 | tr '\n' ':')"
 fi
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if hash brew 2>/dev/null; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+else
+    echo "Skipping brew bash completion setup"
 fi
 
 # Based on http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
