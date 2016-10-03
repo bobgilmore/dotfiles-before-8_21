@@ -5,7 +5,6 @@
 ./setup_scripts/npm_setup.sh
 ./setup_scripts/dotfile_setup.sh
 ./setup_scripts/posix_app_setup.sh
-./setup_scripts/sublime_setup.sh
 ./setup_scripts/git_setup.sh
 ./setup_scripts/vim_setup.sh
 ./setup_scripts/emacs_setup.sh
@@ -13,6 +12,7 @@
 if [ "$(uname)" == "Darwin" ]; then
   ./setup_scripts/mac_app_setup.sh
   ./setup_scripts/osx.sh
+  ./setup_scripts/sublime_setup.sh
 fi
 
 # CriticMarkup no longer installed.
