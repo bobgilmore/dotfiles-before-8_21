@@ -45,7 +45,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install jbig2dec
   brew install jq
   brew install libidn
-  brew install macvim
   brew install memcached
   brew install mercurial
   brew install multimarkdown
