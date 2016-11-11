@@ -16,8 +16,8 @@
 (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
 
 (require 'ws-trim)
-(global-ws-trim-mode t)
-(set-default 'ws-trim-level 1)
+;;(global-ws-trim-mode t)
+;;(set-default 'ws-trim-level 1)
 
 ;; http://www.emacswiki.org/emacs/DotEmacsChallenge
 (setq-default indent-tabs-mode nil)
