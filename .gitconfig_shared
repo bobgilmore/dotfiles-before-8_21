@@ -1,4 +1,6 @@
 # Shared git configuration settings, from https://github.com/bobgilmore/dotfiles
+[core]
+	excludesfile = ~/.gitignore
 [color]
   ui = true
 [push]
