@@ -71,6 +71,9 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install wget
   brew install zsh
 
+  brew install sinatra
+  brew install thin
+
   brew tap homebrew/dupes
   brew install grep
 
