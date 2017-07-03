@@ -12,5 +12,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   npm install -g bower
   npm install -g ember-cli
   npm install -g phantomjs
+  npm install -g six
+  npm install six
 fi
 echo "...npm done."
