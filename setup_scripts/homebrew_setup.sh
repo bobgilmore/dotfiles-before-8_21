@@ -61,6 +61,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install redis
   brew install ruby-build
   brew install scons
+  brew install swiftlint
   brew install the_silver_searcher
   brew install tig
   brew install tmux
