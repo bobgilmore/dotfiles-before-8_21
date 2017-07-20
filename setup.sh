@@ -10,7 +10,5 @@
 ./setup_scripts/emacs_setup.sh
 # Mac-specific code
 if [ "$(uname)" == "Darwin" ]; then
-  ./setup_scripts/mac_app_setup.sh
   ./setup_scripts/osx.sh
-  ./setup_scripts/sublime_setup.sh
 fi
