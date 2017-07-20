@@ -14,6 +14,3 @@ if [ "$(uname)" == "Darwin" ]; then
   ./setup_scripts/osx.sh
   ./setup_scripts/sublime_setup.sh
 fi
-
-# CriticMarkup no longer installed.
-#./criticmarkup_setup.sh
