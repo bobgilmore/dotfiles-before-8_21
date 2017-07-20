@@ -21,7 +21,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install bash
   brew install bash-completion
   brew install boot2docker
-  brew install beeftornado/rmtree/brew-rmtree
   brew install cask
   brew install cocoapods
   brew install coreutils
@@ -37,7 +36,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install git
   brew install gnu-sed
   brew install graphviz
-  brew install homebrew/dupes/grep
+  brew install grep
   brew install heroku-toolbelt
   brew install hh
   brew install hub
@@ -51,6 +50,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install mysql
   brew install node
   brew install ossp-uuid
+  brew install perl
   brew install phantomjs
   brew install postgresql
   brew install python
@@ -74,9 +74,6 @@ if [ "$(uname)" = 'Darwin' ]; then
 
   brew install sinatra
   brew install thin
-
-  brew tap homebrew/dupes
-  brew install grep
 
   brew cleanup
   brew linkapps
