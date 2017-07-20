@@ -20,16 +20,12 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install ack
   brew install bash
   brew install bash-completion
-  brew install boot2docker
   brew install cask
   brew install cocoapods
   brew install coreutils
   brew install ctags
-  brew install docker-compose
-  brew install elixir
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
   brew install --cocoa --srgb emacs
-  brew install erlang
   brew install findutils
   brew install fish
   brew install ghostscript
@@ -44,37 +40,40 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install jbig2dec
   brew install jq
   brew install libidn
-  brew install memcached
   brew install mercurial
   brew install multimarkdown
-  brew install mysql
   brew install node
-  brew install ossp-uuid
   brew install perl
   brew install phantomjs
-  brew install postgresql
   brew install python
   brew install qt
-  brew install rabbitmq
   brew install rbenv
   brew install reattach-to-user-namespace
-  brew install redis
   brew install ruby-build
   brew install scons
   brew install swiftlint
   brew install the_silver_searcher
-  brew install tig
   brew install tmux
   brew install tree
   brew install vim
-  brew install watchman
-  brew install webkit2png
   brew install wget
   brew install zsh
 
-  brew install sinatra
-  brew install thin
-
+  #brew install boot2docker
+  #brew install docker-compose
+  #brew install elixir
+  #brew install erlang
+  #brew install memcached
+  #brew install mysql
+  #brew install ossp-uuid
+  #brew install postgresql
+  #brew install rabbitmq
+  #brew install redis
+  #brew install sinatra
+  #brew install thin
+  #brew install watchman
+  #brew install webkit2png
+  
   brew cleanup
   brew linkapps
 
