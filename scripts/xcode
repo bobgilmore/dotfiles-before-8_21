@@ -7,14 +7,12 @@ f = []
 f.concat Dir["*.xcworkspace"]
 f.concat Dir["*.xcodeproj"]
 
+xcode_path = `xcode-select -p`
+xcode_path = File.dirname(File.dirname(xcode_path))
 if f.length > 0
-  puts "opening #{f.first}"
-  `open -a /Applications/Xcode.app #{f.first} --args -ApplePersistenceIgnoreState YES`
+  puts "opening #{f.first} with #{xcode_path}"
+  `open -a #{xcode_path} #{f.first} --args -ApplePersistenceIgnoreState YES`
   exit_code = `echo $?`
-  if exit_code != 0
-    puts "Xcode failed. Trying Xcode-beta"
-    `open -a /Applications/Xcode-beta.app #{f.first} --args -ApplePersistenceIgnoreState YES`
-  end
   exit 0
 end
 
