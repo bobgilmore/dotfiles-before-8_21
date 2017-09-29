@@ -53,6 +53,8 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install scons
   brew install swiftlint
   brew install the_silver_searcher
+  brew install tag
+  brew install tig
   brew install tmux
   brew install tree
   brew install vim
