@@ -74,7 +74,7 @@ else
 fi
 
 if [ $(uname) = 'Darwin' ]; then
-  MAIN_PROMPT_COLOR=${BICyan}
+  MAIN_PROMPT_COLOR=${BIBlue}
 else
   MAIN_PROMPT_COLOR=${BIRed}
 fi
