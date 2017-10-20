@@ -19,6 +19,10 @@ export HOMEBREW_NO_ANALYTICS=1
 if [ -d "$HOME/code" ]; then
   export CDPATH=".:$(find $HOME/code -type d -depth 1 -maxdepth 1 | tr '\n' ':')"
 fi
+if [ -d "$HOME/Documents/code" ]; then
+  export CDPATH=".$CDPATH:$(find $HOME/Documents/code -type d -depth 1 -maxdepth 1 | tr '\n' ':')"
+fi
+
 if hash brew 2>/dev/null; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
