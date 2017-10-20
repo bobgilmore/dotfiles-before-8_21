@@ -7,8 +7,9 @@
  '(frame-background-mode 'dark)
  )
 
-(load-theme 'solarized t)
-(load-theme 'tangotango t)
+;;(load-theme 'color-theme-solarized)
+;;(load-theme 'tangotango t)
+(load-theme 'leuven t)
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs_backups/autosaves/" t)
 
