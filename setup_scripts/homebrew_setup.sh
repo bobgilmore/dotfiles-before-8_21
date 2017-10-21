@@ -26,6 +26,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install ctags
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
   brew install --cocoa --srgb emacs
+  brew cask install fastlane
   brew install findutils
   brew install fish
   brew install ghostscript
