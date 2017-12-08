@@ -145,6 +145,11 @@ export HH_CONFIG=hicolor
 
 shopt -s histappend
 
+## Fastlane
+# Set up environment for Fastlane
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Finally, read a purely custom .bashrc.local if it exists.
 # Among other things this allows me to keep proprietary information
 # (such as server names) out of my public dotfiles repo.
