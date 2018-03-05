@@ -14,6 +14,8 @@
   cob = checkout -b
   gwc = whatchanged -p --abbrev-commit --pretty=medium
 
+  gg = log --oneline --graph --decorate
+
   up  = !git fetch origin && git rebase origin/master && git submodule update
   upb = !sh -c 'git fetch origin && git rebase origin/$1' -
   ir  = !git rebase -i origin/master
