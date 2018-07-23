@@ -5,6 +5,14 @@ function function_exists {
     return $?
 }
 
+function parse_xcode_version {
+    if hash xcodebuild 2>/dev/null; then
+        echo `xcodebuild -version | head -1 | cut -f2 -d" "`
+    else
+        echo ""
+    fi
+}
+
 export GOROOT="/usr/local/opt/go/libexec/"
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:$HOME/scripts/colors:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/Library/Haskell/bin:$HOME/.cask/bin:$PATH"
@@ -87,7 +95,7 @@ else
 fi
 
 if function_exists __git_ps1; then
-  export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w$(git branch &>/dev/null;\
+  export PS1="\[${MAIN_PROMPT_COLOR}\["'\! \u@$uname_display \w 🔨 `parse_xcode_version`$(git branch &>/dev/null;\
   if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
