@@ -52,6 +52,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install reattach-to-user-namespace
   brew install ruby-build
   brew install scons
+  brew install shellcheck
   brew install swiftlint
   brew install the_silver_searcher
   brew install tag
