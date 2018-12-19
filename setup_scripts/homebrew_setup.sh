@@ -21,6 +21,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install bartycrouch
   brew install bash
   brew install bash-completion
+  brew install bat
   brew install cask
   brew install cocoapods
   brew install coreutils
