@@ -18,6 +18,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   Echo "Installing formulae"
 
   brew install ack
+  brew install bartycrouch
   brew install bash
   brew install bash-completion
   brew install cask
