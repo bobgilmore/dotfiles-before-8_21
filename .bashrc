@@ -158,6 +158,12 @@ shopt -s histappend
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+## Android Studio / Cordova
+# Allow access to the Android emulator et. al.
+# https://github.com/ionic-team/ionic/issues/14291
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$PATH
+
 # Finally, read a purely custom .bashrc.local if it exists.
 # Among other things this allows me to keep proprietary information
 # (such as server names) out of my public dotfiles repo.

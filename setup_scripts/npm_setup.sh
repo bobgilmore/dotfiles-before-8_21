@@ -14,5 +14,8 @@ if [ "$(uname)" = 'Darwin' ]; then
   npm install -g phantomjs
   npm install -g six
   npm install six
+
+  npm install -g cordova
+  npm install -g ios-deploy
 fi
 echo "...npm done."
