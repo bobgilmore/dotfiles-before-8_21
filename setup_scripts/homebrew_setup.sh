@@ -50,6 +50,8 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install phantomjs
   brew install python
   brew install qt
+  # From https://twitter.com/peterc/status/1088160191881928704
+  brew cask install quicklook-json
   brew install rbenv
   brew install reattach-to-user-namespace
   brew install ruby-build
