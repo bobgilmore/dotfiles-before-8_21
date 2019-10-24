@@ -17,5 +17,6 @@ if [ "$(uname)" = 'Darwin' ]; then
 
   npm install -g cordova
   npm install -g ios-deploy
+  npm install -g ios-sim
 fi
 echo "...npm done."
