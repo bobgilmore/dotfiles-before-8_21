@@ -6,8 +6,9 @@ BIN_DIRECTORY="$HOME/bin"
 ALIASES_DIRECTORY="$HOME/aliases"
 SCRIPTS_DIRECTORY="$HOME/scripts"
 DROPBOX_DIRECTORY="$HOME/Dropbox/dotfile_symlinks"
-LIB_SUBLIME_3="Library/Application Support/Sublime Text 3"
 HOME_VIM="$HOME/.vim"
+XCODE_USERDATA="$HOME/Library/Developer/Xcode/UserData"
+XCODE_XCDEBUGGER="$XCODE_USERDATA/xcdebugger"
 
 # Three-argument form: sourcedir, targetdir, source_and_target_file
 # Four-argument form:  sourcedir, targetdir, sourcefile, targetfile
