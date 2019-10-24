@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]] ; then
+    echo "usage: xcs XcodeVersion"
+    exit 0
+fi
+
+short_name=$1
+if [ -d "/Applications/Xcode$short_name.app" ]; then
+    # Exact match. That trumps all conventions. Take it.
+    :
+elif [[ $1 == *"_"* ]]; then
+    # Obeys my usual Xcode naming convention. Use it.
+    :
+elif [[ $1 == *"."* ]]; then
+    # I typed a dot instead of an underscore. Use an underscore in that place.
+    short_name=${short_name//\./_}
+else
+    # Not an exact match, and none of the usual punctuation.
+    # Insert an underscore as the next-to-last character.
+    short_name="${short_name:0:(${#short_name}-1)}_${short_name:(${#short_name}-1):${short_name}}"
+fi
+
+# Open the app using the name that we've calculated.
+full="/Applications/Xcode$short_name.app"
+echo "Running xcode-select --switch \"$full\""
+sudo xcode-select --switch "$full"
