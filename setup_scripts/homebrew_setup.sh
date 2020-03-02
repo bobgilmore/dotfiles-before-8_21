@@ -24,10 +24,12 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install bat
   brew install cask
   brew install cocoapods
+  brew install cocoapods-keys
   brew install coreutils
   brew install ctags
   # From http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
-  brew install --cocoa --srgb emacs
+  # brew install --cocoa --srgb emacs
+  brew cask install emacs
   brew cask install fastlane
   brew install findutils
   brew install fish
@@ -35,9 +37,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install git
   brew install gnu-sed
   brew install graphviz
-  brew install gradle
   brew install grep
-  brew install heroku-toolbelt
   brew install hh
   brew install hub
   brew install imagemagick
@@ -66,12 +66,14 @@ if [ "$(uname)" = 'Darwin' ]; then
   brew install tree
   brew install vim
   brew install wget
+  brew install xcodeproj
   brew install zsh
 
   #brew install boot2docker
   #brew install docker-compose
   #brew install elixir
   #brew install erlang
+  #brew install gradle
   #brew install memcached
   #brew install mysql
   #brew install ossp-uuid
@@ -84,7 +86,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   #brew install webkit2png
   
   brew cleanup
-  brew linkapps
 
   # Homebrew core team broke brew services, so disable for now and revisit if it becomes necessary.
   # https://github.com/Homebrew/homebrew/issues/28657
