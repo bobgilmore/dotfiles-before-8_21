@@ -4,7 +4,7 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
-
+(setq max-specpdl-size 5000)
 (require 'cask "/usr/local/Cellar/cask/0.8.4/cask.el")
 (cask-initialize)
 (require 'pallet)
