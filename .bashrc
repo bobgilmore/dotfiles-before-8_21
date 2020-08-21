@@ -165,6 +165,9 @@ export LANG=en_US.UTF-8
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$PATH
 
+# Silence Catalina re. bash deprecation
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Finally, read a purely custom .bashrc.local if it exists.
 # Among other things this allows me to keep proprietary information
 # (such as server names) out of my public dotfiles repo.
