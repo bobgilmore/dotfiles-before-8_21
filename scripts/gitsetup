@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Set up posix apps and scripts
+
+# Load env vars and functions
+#source "$(pwd)/../setup_scripts/setup_utils.sh"
+
+if [ ! -d "$HOME/Dropbox/" ]; then
+  echo "------ TODO ------"
+  echo "These setup scripts rely on Dropbox to share preferences between computers."
+  echo "---- END TODO ----"
+  exit 0
+fi
+
+cp "$HOME/Dropbox/dotfile_symlinks/gitignore_template" "./.gitignore"
+git init
+git add .
+git commit -m "Initial commit"
+git commit -m "Initial commit" --no-verify
