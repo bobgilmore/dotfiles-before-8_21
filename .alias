@@ -75,7 +75,8 @@ alias docker-init="source /Applications/Docker/Docker\ Quickstart\ Terminal.app/
 
 alias xcodeclean="rm -rf /Volumes/ramdisk/DerivedData; rm -rf ~/Library/Developer/Xcode/DerivedData"
 
-alias unfuckxcode='rm -rf ~/Library/Developer/Xcode/DerivedData; rm -rf ~/Library/Caches/com.apple.dt.Xcode; echo -e "\xF0\x9F\x94\xA5 BURN IT ALL\xF0\x9F\x94\xA5"'
+alias xcburn='rm -rf ~/Library/Developer/Xcode/DerivedData; rm -rf ~/Library/Caches/com.apple.dt.Xcode; echo -e "\xF0\x9F\x94\xA5 BURN IT ALL\xF0\x9F\x94\xA5"'
+alias xcreburn="burn;xcode"
 
 # Courtesy of Jeff Szuhay on cocoaheads.slack.com #random
 function preview_man () { man -t $@ | open -f -a Preview.app; }
