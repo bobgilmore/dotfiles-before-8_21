@@ -164,7 +164,7 @@ export LANG=en_US.UTF-8
 # Allow access to the Android emulator et. al.
 # https://github.com/ionic-team/ionic/issues/14291
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$PATH
+export PATH=$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 ## Silence zsh warning on Catalina
 # https://www.addictivetips.com/mac-os/hide-default-interactive-shell-is-now-zsh-in-terminal-on-macos/
