@@ -9,7 +9,7 @@ echo "Homebrew..."
 if [ "$(uname)" = 'Darwin' ]; then
   if [ ! -f /usr/local/bin/brew ]; then
     echo "Installing"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
   brew update
   brew doctor
@@ -85,7 +85,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   #brew install thin
   #brew install watchman
   #brew install webkit2png
-  
+
   brew cleanup
 
   # Homebrew core team broke brew services, so disable for now and revisit if it becomes necessary.
