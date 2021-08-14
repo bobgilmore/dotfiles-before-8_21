@@ -67,3 +67,6 @@
   dd = difftool
 
   hash = "!git log -n 1 --oneline"
+
+  # From https://docs.gitlab.com/ee/user/project/push_options.html
+  mwps = push -o merge_request.create -o merge_request.target=develop -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch 
