@@ -5,10 +5,15 @@ if [[ $# -eq 0 ]] ; then
     exit 0
 fi
 
+source ~/.alias
+
 short_name=$1
-if [ -d "/Applications/Xcode$short_name.app" ]; then
+if [ -d "/Applications/Xcode${short_name}.app" ]; then
     # Exact match. That trumps all conventions. Take it.
     :
+elif [ -d "/Applications/Xcode_${short_name}.app" ]; then
+    # Obeys my usual Xcode naming convention, but with a leading underscore. Use it.
+    short_name="_${short_name}"
 elif [[ $1 == *"_"* ]]; then
     # Obeys my usual Xcode naming convention. Use it.
     :
@@ -23,5 +28,7 @@ fi
 
 # Open the app using the name that we've calculated.
 full="/Applications/Xcode$short_name.app"
+echo "Clearing developer caches"
+rm -rf ~/Library/Developer/Xcode/DerivedData; rm -rf ~/Library/Caches/com.apple.dt.Xcode; echo -e "\xF0\x9F\x94\xA5 BURN IT ALL\xF0\x9F\x94\xA5"
 echo "Running xcode-select --switch \"$full\""
 sudo xcode-select --switch "$full"
