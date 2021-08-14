@@ -17,7 +17,8 @@ export GOROOT="/usr/local/opt/go/libexec/"
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$HOME/scripts:$HOME/scripts/colors:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/sbin:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/Library/Haskell/bin:$HOME/.cask/bin:$PATH"
 #export EDITOR="$HOME/scripts/editor.sh"
-export EDITOR=emacs
+#export EDITOR=emacs
+export EDITOR=bbedit
 export MANPATH="$MANPATH:/usr/local/opt/erlang/lib/erlang/man"
 # Opt out of Homebrew analytics
 # https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
